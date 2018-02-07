@@ -36,14 +36,16 @@ html,body{
 #frontIndex main>div{
     display:block;
     height: 90%;
-    width: 30%;
     border: #9c7d4d 1px solid;
-    margin: 0 1.5%;
     float: left
     
 }
 .infoBox {
     overflow: scroll;
+    border: #9c7d4d 1px solid;
+    width: 30%;
+    margin: 0 1.5%;
+    background-color: rgba(255,255,255,0.7)
 }
 .infoBox h1{
     margin: 15px 0px ;
@@ -64,5 +66,19 @@ html,body{
     float: left;
     width: 50%;
     height: 100%;
+    
+}
+.eachMzm{
+    height: 85%;
+    display: block;
+    padding-top: 15%;
+}
+
+.eachMzm .infoBox{
+    height: 70%;
+    
+}
+
+.mzmHK{
     
 }
