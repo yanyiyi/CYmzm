@@ -45,7 +45,7 @@ html,body{
     border: #9c7d4d 1px solid;
     width: 30%;
     margin: 0 1.5%;
-    background-color: rgba(255,255,255,0.7)
+    background-color: rgba(255,255,255,0.8)
 }
 .infoBox h1{
     margin: 15px 0px ;
@@ -72,13 +72,17 @@ html,body{
     height: 85%;
     display: block;
     padding-top: 15%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-
+.eachMzm:nth-child(even) .infoBox{
+    float: right;
+}
 .eachMzm .infoBox{
-    height: 70%;
-    
+    height: 70%;   
 }
 
 .mzmHK{
-    
+    background-image: url(../img/BKeachMZM_HK.jpg);
 }
