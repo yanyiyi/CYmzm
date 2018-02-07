@@ -1,0 +1,68 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@font-face {
+    font-family: "MyHana";
+    src: url("../fonts/HanaMinOTPr6N-Regular.otf") format("opentype");
+}
+
+
+html,body{
+    height: 100%;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+#frontIndex{
+    width: 100%;
+    height: 100%;
+    display: block;
+    
+    }
+
+#navMap{
+    display: block;
+    height: 60%; 
+    background: url(../img/map.svg) no-repeat center -10%;
+    }
+
+#frontLogo{
+    background: url(../img/logoIndex.svg) left top no-repeat;
+    background-size: contain;
+    height:100px;
+    display: block;
+    margin: 1%;
+    }
+#frontIndex main{
+    height: 40%;
+    display: block;
+}
+#frontIndex main>div{
+    display:block;
+    height: 90%;
+    width: 30%;
+    border: #9c7d4d 1px solid;
+    margin: 0 1.5%;
+    float: left
+    
+}
+.infoBox {
+    overflow: scroll;
+}
+.infoBox h1{
+    margin: 15px 0px ;
+    text-align: center;
+    font-family: 'MyHana',serif;
+    font-weight: 800;
+    font-size: 2em;
+    color: #9c7d4d;
+}
+.infoBox .subList{
+    height: 70%;
+    display: block;
+    margin: auto;
+}
+.infoBox .subListLeft{
+    border-right:#9c7d4d 1px solid;
+    display: block;
+    float: left;
+    width: 50%;
+    height: 100%;
+    
+}
