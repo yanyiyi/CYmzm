@@ -1,9 +1,6 @@
-ㄛˇ@media (min-width: 768px){
-/*
-    .infoBox{
-        width: 90%;
-    }
-*/
+@media (min-width: 768px){
+
+    
 }
 
 
@@ -11,6 +8,7 @@
     #frontIndex main #selectMenu,.eachContainer{
         width: 95%;
     }
+    
     
 }
 
