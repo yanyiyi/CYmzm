@@ -77,10 +77,10 @@ main:hover .infoBox,section:hover .infoBox{
     animation: fadeIn 2s forwards;
 }
 section{
-animation: moveBkBack 5s forwards;
+animation: moveBkBack 3s forwards;
     }   
 section:hover{
-animation: moveBk 5s forwards;
+animation: moveBk 3s forwards;
     }                            
 
 .infoBox h1{
@@ -96,14 +96,15 @@ animation: moveBk 5s forwards;
     display: block;
     margin: auto;
 }
+
 .infoBox .subListLeft{
     border-right:#9c7d4d 1px solid;
     display: block;
     float: left;
     width: 50%;
-    height: 100%;
-    
+    height: 100%;    
 }
+
 .eachMzm{
     height: 85%;
     display: block;
@@ -112,53 +113,94 @@ animation: moveBk 5s forwards;
     background-position: 40%;
     background-repeat: no-repeat;
 }
+
 .eachMzm:nth-child(even) .infoBox{
     float: right;
 }
+
 .eachMzm .infoBox{
-    height: 70%;   
+    height: 80%;    
 }
 
-.mzmHK{
+#mzmHK{
     background-image: url(../img/BKeachMZM_HK.jpg);
 }
-.mzmHL{
+#mzmHL{
     background-image: url(../img/BKeachMZM_HL.jpg);
 }
-.mzmPAC{
+#mzmPAC{
     background-image: url(../img/BKeachMZM_PAC.jpg);
 }
-.mzmAL{
+#mzmAL{
     background-image: url(../img/BKeachMZM_AL.jpg);
 }
-.mzmMS{
+#mzmMS{
     background-image: url(../img/BKeachMZM_MS.jpg);
 }
-.mzmZN{
+#mzmZN{
     background-image: url(../img/BKeachMZM_ZN-09.jpg);
 }
-.mzmLC{
+#mzmLC{
     background-image: url(../img/BKeachMZM_LC.jpg);
 }
-.mzmSK{
+#mzmSK{
     background-image: url(../img/BKeachMZM_SK.jpg);
 }
-.mzmZP{
+#mzmZP{
     background-image: url(../img/BKeachMZM_ZP.jpg);
 }
-.mzmPZ{
+#mzmPZ{
     background-image: url(../img/BKeachMZM_PZ.jpg);
 }
-.mzmML{
+#mzmML{
     background-image: url(../img/BKeachMZM_ML.jpg);
 }
+#mzmTP{
+    background-image: url(../img/BKeachMZM_ML.jpg);
+}
+.navLogo{
+    width:48%;
+    height:100%;
+    float: left;
+    display: block;
+    background-image: url(../img/logoMenu.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+} 
 
+.navSub{
+    width:48%;
+    height: 100%;
+    float: right;
+    display: block;
+        background-image: url(../img/look.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 90%;
+}
+.navCenter{
+    width:4%;
+    height: 100%;
+    display: block;
+    float: left ;  
+    margin: 0px;
+    text-align: center;
+    background-image: url(../img/downIcon.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+    opacity: 0.5;
+}
+.navCenter:hover{
+    background-position: 50% 55%;
+    opacity: 1;
+}
 .navBar{
     position: fixed;
     top: 0px;
     color: #FFF;
     font-size: 0.8em;
-    height:5%;
+    height: 7.5%;
     width: 100%;
     text-align: center;
     font-family: 'MyHana',serif;
@@ -166,6 +208,44 @@ animation: moveBk 5s forwards;
     z-index: 20;
     background-color: rgba(158,126,77,0.8);
     opacity: 0;
+}
+.listBox{
+    clear: both;
+    width: 100%;
+    opacity: 0;
+}
+.navToogle{
+position: absolute;
+   top: -9999px;
+   left: -9999px;
+    opacity: 0;
+}
+
+.navToogle:checked + .navCenter{
+    background-image: url(../img/upIcon.svg);
+}
+.navToogle:checked ~ .listBox {
+    animation: backgroundFadeIn 1s forwards;
+}
+
+.navToogle:unchecked ~ .listBox {
+    animation: backgroundFadeOut 0.5s forwards;
+}
+.listBox a{
+    display: block;
+    vertical-align: middle;
+    width: 8.33%;
+    padding: calc((8.3% - 2.4em)/2) 0;
+    float: left;
+    line-height:1.2;
+    color: rgba(158,126,77,1);
+    text-decoration: none;
+    background-color: rgba(255,255,255,0.9);
+    font-size: 1em;
+}
+.listBox a:hover{
+    background-color: rgba(158,126,77,0.8);
+    color: #FFF;
 }
 footer{
     background-color: rgba(0,0,0,0.5);
