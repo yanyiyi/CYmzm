@@ -416,7 +416,7 @@ footer h5{
     from { opacity: 1;
 top:0%; }
     to   { opacity: 0;
-top:-100%; }
+top:-500%; }
 }
 
 @keyframes fadeIn {

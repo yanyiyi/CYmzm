@@ -1,3 +1,8 @@
+@media (max-width: 480px){
+    footer br:last-of-type{
+        display:block;
+    }
+}
 @media (max-width: 767px){
     .listBox a{
      width: 25%;
@@ -8,14 +13,34 @@
     width: calc(25%*3);
     padding: calc((25%)/2) 0;
     }
+    
+    footer{
+        height: 7%;
+    }
+    
+    #moc,#cyc,#tbocc,#tnnua{
+        padding-bottom:  3.75%;
+    }
+   footer br:first-of-type{
+        display:block;
+    }
+    footer br:last-of-type{
+        display: none;
+    }
 }
 
 @media (min-width: 768px){
+    footer{
+        height: 3%;
+    }
+    
     .listBox a{
      width: 14.28571428%;
      padding: calc((14.28571428% - 2.4em)/2) 0;
     }  
-
+    footer br{
+        display: none;
+    }
     #adjNav{
     width: calc(14.28571428%*1);
     padding: calc((14.28571428%)/2) 0;
