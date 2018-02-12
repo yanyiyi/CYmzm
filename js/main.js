@@ -83,6 +83,45 @@ weather_con = {
 "47":"雷陣雨",
 "3200":"資料錯誤"
 };
+var clickItem = {
+    "1":"HK",
+"2":"HL",
+"3":"PAC",
+"4":"AL",
+"5":"MS",
+"6":"ZN",
+"7":"LC",
+"8":"SK",
+"9":"ZP",
+"10":"PZ",
+"11":"ML",
+"12":"TP"
+}
+var clickMark = 0; 
+$.each(clickItem, function (mzmKey, mzmName){
+    var mzmID ="#mzm"+ mzmName +" .infoBox"
+    $(".mzm" + mzmName).click(function() {
+        var infoBoxContent = $(mzmID).children().clone(true);
+        console.log(infoBoxContent);
+     clickMark++;   
+    if(clickMark == 1){
+        $("#select1").children().remove();
+      $("#select1").append(infoBoxContent); 
+    }
+    if(clickMark == 2){
+        $("#select2").children().remove();
+      $("#select2").append(infoBoxContent); 
+    }
+   if(clickMark == 3){
+   $("#select3").children().remove();
+      $("#select3").append(infoBoxContent);
+      clickMark = 0;     
+    }
+    
+});
+}); //for
+    
+    
     
 });
 

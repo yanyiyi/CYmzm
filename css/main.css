@@ -23,10 +23,10 @@ body{
     }
 
 #navMap{
-    display: block;
-    height: 60%; 
-    background: url(../img/map.svg) no-repeat center -10%;
+    display: block; 
     background-size: contain;
+        background: url(../img/map.svg) no-repeat center;
+            height: 60%; 
     }
 .eachButton{
     width: 10%;
@@ -84,7 +84,8 @@ body{
   left:35%;
 }
 .mzmPAC{
-    
+  top:15%;
+  left:42.5%; 
 }
 .mzmAL{
     top:15%;
