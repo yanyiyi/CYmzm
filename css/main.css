@@ -215,10 +215,6 @@ animation: moveBk 5s forwards;
     background-repeat: no-repeat;
 }
 
-.eachMzm:nth-child(even) .infoBox{
-    float: right;
-}
-
 .eachMzm .infoBox{
     height: 80%;    
 }
