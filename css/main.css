@@ -306,17 +306,20 @@ animation: moveBk 5s forwards;
     text-align: center;
     font-family: 'MyHana',serif;
     line-height: 2; 
-    z-index: 20;
+    z-index: 40;
     background-color: rgba(158,126,77,0.8);
     opacity: 0;
 }
 
 
 .listBox{
+    position: absolute;
     display: block;
     clear: both;
     width: 100%;
     opacity: 0;
+    top:-1000%;
+    z-index: 35;
 }
 #adjNav,#adjNav:hover{
     background-color: rgba(255,255,255,0.5);
@@ -332,11 +335,11 @@ position: absolute;
     background-image: url(../img/upIcon.svg);
 }
 .navToogle:checked ~ .listBox {
-    animation: backgroundFadeIn 1s forwards;
+    animation: backgroundFadeInlistBox 1s forwards;
 }
 
 .navToogle:unchecked ~ .listBox {
-    animation: backgroundFadeOut 1s forwards;
+    animation: backgroundFadeOutlistBox 1s forwards;
 }
 .listBox a{
     display: block;
@@ -412,9 +415,24 @@ footer h5{
     to   { opacity: 1;
     top:0%;}
 }
+@keyframes backgroundFadeInlistBox {
+    from { 
+    top:-500%;
+    opacity: 0;}
+    to   {
+        opacity: 1;
+    top:100%;}
+}
 @keyframes backgroundFadeOut {
     from { opacity: 1;
 top:0%; }
+    to   { opacity: 0;
+top:-100%; }
+}
+
+@keyframes backgroundFadeOutlistBox {
+    from { opacity: 1;
+top:100%; }
     to   { opacity: 0;
 top:-500%; }
 }
