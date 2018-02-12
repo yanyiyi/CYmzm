@@ -2,12 +2,12 @@
     footer br:last-of-type{
         display:block;
     }
-    #frontLogo{
-        display: none;
-    }
+
 }
 @media (max-width: 767px){
-    
+    #frontLogo{
+        display: none;
+    }    
     .infoBox h1{
         font-size:  1.2em;
     }
@@ -16,6 +16,10 @@
     margin: 0 auto;
     float: none;
     height: 20%;
+    }
+    .navCenter{
+    float: right;
+    width:10%;
     }
     .listBox a{
      width: 25%;
@@ -40,9 +44,18 @@
     footer br:last-of-type{
         display: none;
     }
+    .navSub{
+        display: none;
+    }
+    .selectMenu {
+        
+    }
 }
 
 @media (min-width: 768px){
+    .navSub{
+        display: block;
+    }
      #frontIndex main #selectMenu,.eachContainer{
         width: 100%;
     }
@@ -52,7 +65,7 @@
     footer{
         height: 3%;
     }
-    
+ 
     .listBox a{
      width: 14.28571428%;
      padding: calc((14.28571428% - 2.4em)/2) 0;
@@ -82,6 +95,7 @@
     #adjNav{
     width: calc(11.111%*5);
     padding: calc((11.111% )/2) 0;
+         display:block;
     }
     
 }
@@ -93,6 +107,9 @@
     .listBox a{    
      width: 7.69230%;
         padding: calc((7.69230% - 2.4em)/2) 0;
+    }
+    #adjNav{
+        display: none;
     }
     
 }
