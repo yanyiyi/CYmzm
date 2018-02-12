@@ -1,20 +1,51 @@
-@media (min-width: 768px){
+@media (max-width: 767px){
+    .listBox a{
+     width: 25%;
+     padding: calc((25% - 2.4em)/2) 0;
+    }   
 
-    
+    #adjNav{
+    width: calc(25%*3);
+    padding: calc((25%)/2) 0;
+    }
+}
+
+@media (min-width: 768px){
+    .listBox a{
+     width: 14.28571428%;
+     padding: calc((14.28571428% - 2.4em)/2) 0;
+    }  
+
+    #adjNav{
+    width: calc(14.28571428%*1);
+    padding: calc((14.28571428%)/2) 0;
+    }
 }
 
 
-@media (min-width: 992px){
+@media (min-width: 992px ){
     #frontIndex main #selectMenu,.eachContainer{
         width: 95%;
     }
+    .listBox a{
+     width: 11.111%;
+     padding: calc((11.111% - 2.4em)/2) 0;
+    }
     
+    #adjNav{
+    width: calc(11.111%*5);
+    padding: calc((11.111% )/2) 0;
+    }
     
 }
 
 @media (min-width: 1200px){
    #frontIndex main #selectMenu,.eachContainer{
         width: 80%;
+    }
+    .listBox a{    
+     width: 7.69230%;
+        padding: calc((7.69230% - 2.4em)/2) 0;
     }
     
 }

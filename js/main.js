@@ -100,21 +100,53 @@ var clickItem = {
 var clickMark = 0; 
 $.each(clickItem, function (mzmKey, mzmName){
     var mzmID ="#mzm"+ mzmName +" .infoBox"
+    $(".mzm" + mzmName).hover(function() {
+        if(clickMark == 0){
+           $("#select1").addClass("selectHover");
+        } else if (clickMark == 1){ 
+            $("#select2").addClass("selectHover");
+        } else if (clickMark == 2){ 
+            $("#select3").addClass("selectHover");
+        }
+    },function() {if(clickMark == 0){
+           $("#select1").removeClass("selectHover");
+        } else if (clickMark == 1){ 
+            $("#select2").removeClass("selectHover");
+        } else if (clickMark == 2){ 
+            $("#select3").removeClass("selectHover");
+        }});
     $(".mzm" + mzmName).click(function() {
         var infoBoxContent = $(mzmID).children().clone(true);
-        console.log(infoBoxContent);
      clickMark++;   
     if(clickMark == 1){
         $("#select1").children().remove();
-      $("#select1").append(infoBoxContent); 
-    }
-    if(clickMark == 2){
+        $(".select1Btn").removeClass("activeDisplay");
+        $(".select1Btn").removeClass("select1Btn");
+        $(this).addClass("select1Btn");
+        $(this).addClass("activeDisplay");
+        
+        $("#select1").append(infoBoxContent); 
+        $("#select1").removeClass("selectHover");
+        
+    }else if(clickMark == 2){
         $("#select2").children().remove();
+        
+        $(".select2Btn").removeClass("activeDisplay");
+        $(".select2Btn").removeClass("select2Btn");
+        $(this).addClass("select2Btn");
+        $(this).addClass("activeDisplay");
       $("#select2").append(infoBoxContent); 
-    }
-   if(clickMark == 3){
+        $("#select2").removeClass("selectHover");
+    }else if(clickMark == 3){
    $("#select3").children().remove();
+        
+        $(".select3Btn").removeClass("activeDisplay");
+        $(".select3Btn").removeClass("select3Btn");
+        $(this).addClass("select3Btn");
+        $(this).addClass("activeDisplay");
+        
       $("#select3").append(infoBoxContent);
+        $("#select3").removeClass("selectHover");
       clickMark = 0;     
     }
     
