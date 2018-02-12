@@ -26,7 +26,102 @@ body{
     display: block;
     height: 60%; 
     background: url(../img/map.svg) no-repeat center -10%;
+    background-size: contain;
     }
+.eachButton{
+    width: 10%;
+    padding-top: 2%;
+    display: block;
+    text-align: center;
+    position: absolute;
+    z-index: 40;
+}
+.eachButton .btn{
+    background-image: url(../img/item.svg);
+    width: 33%;
+    padding-bottom: 33%;
+    display: block;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+}
+.eachButton h4{
+    display: inline;
+    font-family: 'MyHana',serif;
+    font-weight: 800;
+    font-size: 0.5em;
+    color: #9c7d4d;
+    background-color: #FFF;
+    padding: 0.25em;
+    border: #9c7d4d 1px solid;
+    border-radius: 3px 3px 3px 3px;
+-moz-border-radius: 3px 3px 3px 3px;
+-webkit-border-radius: 3px 3px 3px 3px;
+}
+.eachButton h4:first-of-type,.eachButton:hover h4:first-of-type{
+    border-bottom: none;
+}
+
+
+
+.eachButton h4:last-of-type,.eachButton:hover h4:last-of-type{
+    border-top: none;
+}
+.eachButton:hover .btn{
+   background-image: url(../img/loading.svg);    
+}
+.eachButton:hover h4{
+    color: #FFF;
+    background-color: #9c7d4d;
+    border: #FFF 1px solid;
+}
+
+.mzmHK{
+  top:5%;
+  left:30%;
+}
+.mzmHL{
+  top:5%;
+  left:35%;
+}
+.mzmPAC{
+    
+}
+.mzmAL{
+    top:15%;
+  left:65%;    
+}
+.mzmMS{
+   top:10%;
+  left:55%;    
+}
+.mzmZN{
+  top:25%;
+  left:10%;  
+}
+.mzmLC{
+  top:25%;
+  left:35%;     
+}
+.mzmSK{
+   top:5%;
+  left:45%;  
+}
+.mzmZP{
+   top:25%;
+  left:50%;      
+}
+.mzmPZ{
+    top:15%;
+  left:20%;  
+}
+.mzmML{
+    top:15%;
+  left:25%;   
+}
+.mzmTP{
+   top:10%;
+  left:60%;  
+}
 
 #frontLogo{
     background: url(../img/logoIndex.svg) left top no-repeat;
@@ -34,6 +129,9 @@ body{
     height:100px;
     display: block;
     margin: 1%;
+    z-index: 8;
+    position: absolute;
+    width: 100%;
     }
 #frontIndex main{
     position: absolute;
