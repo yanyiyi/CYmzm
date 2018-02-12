@@ -2,8 +2,21 @@
     footer br:last-of-type{
         display:block;
     }
+    #frontLogo{
+        display: none;
+    }
 }
 @media (max-width: 767px){
+    
+    .infoBox h1{
+        font-size:  1.2em;
+    }
+    .infoBox {
+    width: 90%;
+    margin: 0 auto;
+    float: none;
+    height: 20%;
+    }
     .listBox a{
      width: 25%;
      padding: calc((25% - 2.4em)/2) 0;
@@ -30,6 +43,12 @@
 }
 
 @media (min-width: 768px){
+     #frontIndex main #selectMenu,.eachContainer{
+        width: 100%;
+    }
+    .eachMzm:nth-child(even) .infoBox{
+        float: none;
+    }
     footer{
         height: 3%;
     }
@@ -49,6 +68,9 @@
 
 
 @media (min-width: 992px ){
+    .eachMzm:nth-child(even) .infoBox{
+    float: right;
+}
     #frontIndex main #selectMenu,.eachContainer{
         width: 95%;
     }
