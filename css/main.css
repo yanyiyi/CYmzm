@@ -62,25 +62,24 @@ body{
     width: 30%;
     margin: 0 1.5%;
     background-color: rgba(255,255,255,0.8);
-    opacity: 0.5;
     -webkit-box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
 -moz-box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
 box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
 }
 
 main .infoBox,section .infoBox{
-    animation: fadeOut 2s forwards;
+    animation: fadeOut 1s forwards;
 }
 
 
 main:hover .infoBox,section:hover .infoBox{
-    animation: fadeIn 2s forwards;
+    animation: fadeIn 1s forwards;
 }
 section{
 animation: moveBkBack 3s forwards;
     }   
 section:hover{
-animation: moveBk 3s forwards;
+animation: moveBk 5s forwards;
     }                            
 
 .infoBox h1{
@@ -225,7 +224,7 @@ position: absolute;
     background-image: url(../img/upIcon.svg);
 }
 .navToogle:checked ~ .listBox {
-    animation: backgroundFadeIn 1s forwards;
+    animation: backgroundFadeIn 0.8s forwards;
 }
 
 .navToogle:unchecked ~ .listBox {
@@ -308,13 +307,13 @@ footer h5{
 }
 
 @keyframes fadeIn {
-    from { opacity: 0.5; } 
-    to { opacity: 1; }
+    from { background-color: rgba(255,255,255,0.5); } 
+    to { background-color: rgba(255,255,255,0.8); }
 }
 
 @keyframes fadeOut {
-    from { opacity: 1; } 
-    to { opacity: 0.5; }
+    from { background-color: rgba(255,255,255,0.8); } 
+    to { background-color: rgba(255,255,255,0.5); }
 }
 
 @keyframes fadeInHover {
