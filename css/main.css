@@ -15,13 +15,13 @@ body{
     width: 100%;
     height: 100%;
     display: block;
-    }
+}
 #navMap{
     display: block; 
     background-size: contain;
     background: url(../img/map.svg) no-repeat center;
     height: 60%; 
-    }
+}
 .eachButton{
     width: 7em;
     padding-top: 2%;
@@ -50,17 +50,17 @@ body{
     padding: 0.25em;
     border: #9c7d4d 1px solid;
     border-radius: 3px 3px 3px 3px;
--moz-border-radius: 3px 3px 3px 3px;
--webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
 }
 .eachButton h4:first-of-type,.eachButton:hover h4:first-of-type{
-/*    border-bottom: none;*/
+    /*    border-bottom: none;*/
 }
 .eachButton h4:last-of-type,.eachButton:hover h4:last-of-type{
     border-top: none;
 }
 .activeDisplay .btn,.eachButton:hover .btn{
-   background-image: url(../img/itemHover.svg);    
+    background-image: url(../img/itemHover.svg);    
 }
 .activeDisplay h4,.eachButton:hover h4{
     color: #FFF;
@@ -69,56 +69,56 @@ body{
 }
 
 .mzmHK{
-  top:5%;
-  left:28%;
+    top:5%;
+    left:28%;
 }
 .mzmHL{
-  top:5%;
-  left:35%;
+    top:5%;
+    left:35%;
 }
 .mzmPAC{
-  top:15%;
-  left:42.5%; 
+    top:15%;
+    left:42.5%; 
 }
 .mzmAL{
     top:15%;
-  left:65%;    
+    left:65%;    
 }
 .mzmMS{
-   top:10%;
-  left:55%;    
+    top:10%;
+    left:55%;    
 }
 .mzmZN{
-  top:25%;
-  left:10%;  
+    top:25%;
+    left:10%;  
 }
 .mzmLC{
-  top:25%;
-  left:35%;     
+    top:25%;
+    left:35%;     
 }
 .mzmSK{
-   top:5%;
-  left:45%;  
+    top:5%;
+    left:45%;  
 }
 .mzmZP{
-   top:25%;
-  left:50%;      
+    top:25%;
+    left:50%;      
 }
 .mzmPZ{
     top:15%;
-  left:20%;  
+    left:20%;  
 }
 .mzmML{
     top:15%;
-  left:25%;   
+    left:25%;   
 }
 .mzmTP{
-   top:10%;
-  left:60%;  
+    top:10%;
+    left:60%;  
 }
 .mzmBC{
-   top:15%;
-  left:37%;  
+    top:15%;
+    left:37%;  
 }
 #frontLogo{
     background: url(../img/logoIndex.svg) left top no-repeat;
@@ -128,8 +128,8 @@ body{
     margin: 1%;
     z-index: 8;
     position: absolute;
-    width: 100%;
-    }
+    width: 100%;                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+}
 #frontIndex main{
     position: absolute;
     z-index: 10;
@@ -159,8 +159,8 @@ body{
     margin: 0 1.5%;
     background-color: rgba(255,255,255,0.8);
     -webkit-box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
--moz-box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
-box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
+    -moz-box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
+    box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
 }
 
 main .infoBox,section .infoBox{
@@ -172,11 +172,11 @@ main:hover .infoBox,section:hover .infoBox{
     animation: fadeIn 1s forwards;
 }
 section{
-animation: moveBkBack 3s forwards;
-    }   
+    animation: moveBkBack 3s forwards;
+}   
 section:hover{
-animation: moveBk 5s forwards;
-    }                            
+    animation: moveBk 5s forwards;
+}                            
 
 .infoBox h1{
     text-decoration: none;
@@ -191,7 +191,7 @@ animation: moveBk 5s forwards;
 .infoBox h1 a{
     color: #9c7d4d; 
     text-decoration: none;
-    }
+}
 .infoBox .subList{
     height: 70%;
     display: block;
@@ -269,7 +269,7 @@ animation: moveBk 5s forwards;
     width:48%;
     height: 100%;
     float: right;
-        background-image: url(../img/look.png);
+    background-image: url(../img/look.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 90%;
@@ -320,9 +320,9 @@ animation: moveBk 5s forwards;
     background-color: rgba(255,255,255,0.5);
 }
 .navToogle{
-position: absolute;
-   top: -9999px;
-   left: -9999px;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
     opacity: 0;
 }
 
@@ -361,8 +361,8 @@ footer{
     text-align: center;
     padding: 0.25% 0;
     -webkit-box-shadow: 0px -1px 15px 0px rgba(0,0,0,0.7);
--moz-box-shadow: 0px -1px 15px 0px rgba(0,0,0,0.7);
-box-shadow: 0px -1px 15px 0px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0px -1px 15px 0px rgba(0,0,0,0.7);
+    box-shadow: 0px -1px 15px 0px rgba(0,0,0,0.7);
 }
 footer a{
     display: inline-block;
@@ -389,13 +389,13 @@ footer h5{
     background-image: url(../img/footerCYC.png);
     width:75px;
     padding-bottom:  2%;
-    
+
 }
 #tbocc{
     background-image: url(../img/footerTBOCC.png);
     width: 110px;
     padding-bottom:  2%;
-    
+
 }
 #tnnua{
     background-image: url(../img/footerTNAU.png);
@@ -408,28 +408,28 @@ footer h5{
         top:-100%;
         opacity: 0;}
     to   { opacity: 1;
-    top:0%;}
+        top:0%;}
 }
 @keyframes backgroundFadeInlistBox {
     from { 
-    top:-500%;
-    opacity: 0;}
+        top:-500%;
+        opacity: 0;}
     to   {
         opacity: 1;
-    top:100%;}
+        top:100%;}
 }
 @keyframes backgroundFadeOut {
     from { opacity: 1;
-top:0%; }
+        top:0%; }
     to   { opacity: 0;
-top:-100%; }
+        top:-100%; }
 }
 
 @keyframes backgroundFadeOutlistBox {
     from { opacity: 1;
-top:100%; }
+        top:100%; }
     to   { opacity: 0;
-top:-500%; }
+        top:-500%; }
 }
 
 @keyframes fadeIn {
@@ -460,22 +460,22 @@ top:-500%; }
 
 @keyframes blinkBK {
     0% {-webkit-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);
--moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);
-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);}
+        -moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);
+        box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);}
     25% {-webkit-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);
--moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);
-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);}
+        -moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);
+        box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);}
     50% {-webkit-box-shadow: 5px 5px 30px 0px rgba(156,125,77,1);
--moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,1);
-box-shadow: 5px 5px 30px 0px rgba(156,125,77,1);}
+        -moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,1);
+        box-shadow: 5px 5px 30px 0px rgba(156,125,77,1);}
     75% {-webkit-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);
--moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);
-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);}
+        -moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);
+        box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);}
     100% {-webkit-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.8);
--moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);
-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);}
+        -moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);
+        box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);}
 }
- main #selectMenu .selectHover{
+main #selectMenu .selectHover{
     animation: blinkBK 1.5s infinite;
-     background-color: rgba(156,125,77,0.2) ;
+    background-color: rgba(156,125,77,0.2) ;
 }

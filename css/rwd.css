@@ -6,7 +6,7 @@
 }
 @media (max-width: 767px){
     #frontLogo{
-        display: none;
+    display: none;
     }    
     .infoBox h1{
         font-size:  1.2em;
@@ -95,7 +95,7 @@
     #adjNav{
     width: calc(11.111%*5);
     padding: calc((11.111% )/2) 0;
-         display:block;
+    display:block;
     }
     
 }
