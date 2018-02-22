@@ -1,4 +1,21 @@
 $( document ).ready(function() {
+$(function(){
+    var mzmCode = [];
+    var mzmName = [];
+    var mzmNameDisplayFirst = [];
+    var mzmNameDisplaySecond = [];   
+ $.getJSON('https://spreadsheets.google.com/feeds/list/1JP89lOM6MyDogTVVhGcmoUwqQyPAo6AADbfA7kLLi0Y/od6/public/values?alt=json', function (data){
+        for (var i=0; i < data.feed.entry.length; i++){
+            mzmCode[i] = data.feed.entry[i].gsx$mzmcode.$t;
+            mzmName[i] = data.feed.entry[i].gsx$mzmname.$t;
+            mzmNameDisplayFirst[i] = data.feed.entry[i].gsx$mzmnamedisplayfirst.$t;
+            mzmNameDisplaySecond[i] = data.feed.entry[i].gsx$mzmnamedisplaysecond.$t;
+            $("#adjNav").before("<a href='#mzm"+mzmCode[i]+"'>"+mzmNameDisplayFirst[i]+"<br/>"+mzmNameDisplaySecond[i]);
+        }
+     for (var i=0; i < data.feed.entry.length; i++){                            $(".navBar").after("");
+            }
+    });
+});
     
 $("link").each(function(){
 var d = new Date();
