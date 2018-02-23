@@ -46,7 +46,10 @@ $(document).ready(function () {
             //**建立NavList 與帶入資料**// 
             for (var j = 0; j < data.feed.entry.length; j++) {
                 var target = mzmRamdom[j];
+                var targetOri = mzmRamdom[j + 1];
                 $(".eachMzm:last").attr("id", "mzm" + mzmCode[target]);
+                $(".eachMzm:last iframe").attr("id", "goPage" + mzmCode[targetOri]);
+                $(".eachMzm:last iframe").attr("name", "goPage" + mzmCode[targetOri]);
                 if (j != 0) $(".eachMzm:last").removeClass("firstSec");
                 $(".eachMzm:last h1").append("<a href='.#mzm" + mzmCode[target] + "'>" + mzmNameDisplayFirst[target] + "<br/>" + mzmNameDisplaySecond[target]);
                 //                var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[target] + "/3/public/values?alt=json";
@@ -72,28 +75,27 @@ $(document).ready(function () {
             } //end of 帶入資料
 
             //**建立帶入資料**// 
-            for (var l = 0; l < data.feed.entry.length; l++) {
+            for (var l = 0; l < 1; l++) {
                 var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/3/public/values?alt=json";
-                console.log("1");
+                console.log("1," + l);
                 //**帶入各館舍資料**//
                 var titleEach = [];
                 var linkEach = [];
                 var susEach = [];
                 var codeRound = mzmCode[l];
                 $.getJSON(jsonLink, function (dataEach) {
-                    console.log("2");
+
                     for (var k = 0; k < dataEach.feed.entry.length; k++) {
                         titleEach[k] = dataEach.feed.entry[k].gsx$title.$t;
                         linkEach[k] = dataEach.feed.entry[k].gsx$link.$t;
                         susEach[k] = dataEach.feed.entry[k].gsx$suspend.$t;
-                        console.log("3");
                         if (susEach[k] != " ") {
-                            $("#mzm" + codeRound + " .subListRight ").append("<li><a href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
-                            console.log("4");
+
+                            $("#mzm" + codeRound + " .subListRight ").append("<li><a target='goPage" + codeRound + "' href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
+
                         }
                     }
                 }); // end of Each Json
-
             } // end of Getin 
 
         }); // end of Get JSON 
@@ -194,7 +196,8 @@ $(document).ready(function () {
         "9": "ZP",
         "10": "PZ",
         "11": "ML",
-        "12": "TP"
+        "12": "TP",
+        "13": "BC"
     }
     var clickMark = 0;
     $.each(clickItem, function (mzmKey, mzmName) {

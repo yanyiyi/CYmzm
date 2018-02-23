@@ -287,6 +287,24 @@ section:hover {
     margin: auto;
 }
 
+.subList .subListRight {
+    color: #4d4d4d;
+    line-height: 1.5;
+    list-style-type: none;
+}
+
+.subList .subListRight a {
+    color: #4d4d4d;
+    padding: 5px;
+    font-size: 1.05em;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.subList .subListRight a:hover {
+    color: #9c7d4d;
+}
+
 .infoBox .subListLeft {
     border-right: #9c7d4d 1px solid;
     display: block;
