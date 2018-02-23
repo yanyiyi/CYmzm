@@ -3,26 +3,32 @@
     font-family: "MyHana";
     src: url("../fonts/HanaMinOTPr6N-Regular.otf") format("opentype");
 }
-html,body{
+
+html,
+body {
     height: 100%;
     font-family: 'Noto Sans TC', sans-serif;
 }
-body{
+
+body {
     background: url(../img/bkBig.jpg) bottom center no-repeat;
     background-size: contain;
 }
-#frontIndex{
+
+#frontIndex {
     width: 100%;
     height: 100%;
     display: block;
 }
-#navMap{
-    display: block; 
+
+#navMap {
+    display: block;
     background-size: contain;
     background: url(../img/map.svg) no-repeat center;
-    height: 60%; 
+    height: 60%;
 }
-.eachButton{
+
+.eachButton {
     width: 7em;
     padding-top: 2%;
     display: block;
@@ -30,7 +36,8 @@ body{
     position: absolute;
     z-index: 40;
 }
-.eachButton .btn{
+
+.eachButton .btn {
     background-image: url(../img/item.svg);
     width: 20%;
     padding-bottom: 33%;
@@ -39,9 +46,10 @@ body{
     background-repeat: no-repeat;
     background-position: bottom center;
 }
-.eachButton h4{
+
+.eachButton h4 {
     display: inline;
-    font-family: 'MyHana',serif;
+    font-family: 'MyHana', serif;
     line-height: 0.95;
     font-weight: 800;
     font-size: 0.5em;
@@ -53,84 +61,106 @@ body{
     -moz-border-radius: 3px 3px 3px 3px;
     -webkit-border-radius: 3px 3px 3px 3px;
 }
-.eachButton h4:first-of-type,.eachButton:hover h4:first-of-type{
+
+.eachButton h4:first-of-type,
+.eachButton:hover h4:first-of-type {
     /*    border-bottom: none;*/
 }
-.eachButton h4:last-of-type,.eachButton:hover h4:last-of-type{
+
+.eachButton h4:last-of-type,
+.eachButton:hover h4:last-of-type {
     border-top: none;
 }
-.activeDisplay .btn,.eachButton:hover .btn{
-    background-image: url(../img/itemHover.svg);    
+
+.activeDisplay .btn,
+.eachButton:hover .btn {
+    background-image: url(../img/itemHover.svg);
 }
-.activeDisplay h4,.eachButton:hover h4{
+
+.activeDisplay h4,
+.eachButton:hover h4 {
     color: #FFF;
     background-color: #9c7d4d;
     border: #FFF 1px solid;
 }
 
-.mzmHK{
-    top:5%;
-    left:28%;
+.mzmHK {
+    top: 5%;
+    left: 28%;
 }
-.mzmHL{
-    top:5%;
-    left:35%;
+
+.mzmHL {
+    top: 5%;
+    left: 35%;
 }
-.mzmPAC{
-    top:15%;
-    left:42.5%; 
+
+.mzmPAC {
+    top: 15%;
+    left: 42.5%;
 }
-.mzmAL{
-    top:15%;
-    left:65%;    
+
+.mzmAL {
+    top: 15%;
+    left: 65%;
 }
-.mzmMS{
-    top:10%;
-    left:55%;    
+
+.mzmMS {
+    top: 10%;
+    left: 55%;
 }
-.mzmZN{
-    top:25%;
-    left:10%;  
+
+.mzmZN {
+    top: 25%;
+    left: 10%;
 }
-.mzmLC{
-    top:25%;
-    left:35%;     
+
+.mzmLC {
+    top: 25%;
+    left: 35%;
 }
-.mzmSK{
-    top:5%;
-    left:45%;  
+
+.mzmSK {
+    top: 5%;
+    left: 45%;
 }
-.mzmZP{
-    top:25%;
-    left:50%;      
+
+.mzmZP {
+    top: 25%;
+    left: 50%;
 }
-.mzmPZ{
-    top:15%;
-    left:20%;  
+
+.mzmPZ {
+    top: 15%;
+    left: 20%;
 }
-.mzmML{
-    top:15%;
-    left:25%;   
+
+.mzmML {
+    top: 15%;
+    left: 25%;
 }
-.mzmTP{
-    top:10%;
-    left:60%;  
+
+.mzmTP {
+    top: 10%;
+    left: 60%;
 }
-.mzmBC{
-    top:15%;
-    left:37%;  
+
+.mzmBC {
+    top: 15%;
+    left: 37%;
 }
-#frontLogo{
+
+#frontLogo {
     background: url(../img/logoIndex.svg) left top no-repeat;
     background-size: contain;
-    height:100px;
+    height: 100px;
     display: block;
     margin: 1%;
     z-index: 8;
     position: absolute;
-    width: 100%;                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+    width: 100%;
 }
-#frontIndex main{
+
+#frontIndex main {
     position: absolute;
     z-index: 10;
     height: 50%;
@@ -138,15 +168,18 @@ body{
     display: block;
     bottom: 0px;
 }
-#frontIndex main #selectMenu,.eachContainer{
+
+#frontIndex main #selectMenu,
+.eachContainer {
     position: relative;
     margin: 0 auto;
     width: 100%;
     display: block;
     height: 100%;
 }
-#frontIndex main .infoBox{
-    display:block;
+
+#frontIndex main .infoBox {
+    display: block;
     height: 90%;
     border: #9c7d4d 1px solid;
     float: left;
@@ -157,56 +190,61 @@ body{
     border: #9c7d4d 1px solid;
     width: 30%;
     margin: 0 1.5%;
-    background-color: rgba(255,255,255,0.8);
-    -webkit-box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
-    -moz-box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
-    box-shadow: 5px 5px 30px 0px rgba(0,0,0,0.7);
+    background-color: rgba(255, 255, 255, 0.8);
+    -webkit-box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.7);
+    box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.7);
 }
 
-main .infoBox,section .infoBox{
+main .infoBox,
+section .infoBox {
     animation: fadeOut 1s forwards;
 }
 
 
-main:hover .infoBox,section:hover .infoBox{
+main:hover .infoBox,
+section:hover .infoBox {
     animation: fadeIn 1s forwards;
 }
-section{
-    animation: moveBkBack 3s forwards;
-}   
-section:hover{
-    animation: moveBk 5s forwards;
-}                            
 
-.infoBox h1{
+section {
+    animation: moveBkBack 3s forwards;
+}
+
+section:hover {
+    animation: moveBk 5s forwards;
+}
+
+.infoBox h1 {
     text-decoration: none;
-    margin: 15px 0px ;
+    margin: 15px 0px;
     text-align: center;
-    font-family: 'MyHana',serif;
+    font-family: 'MyHana', serif;
     font-weight: 800;
     font-size: 2em;
-    color: #9c7d4d; 
+    color: #9c7d4d;
 }
 
-.infoBox h1 a{
-    color: #9c7d4d; 
+.infoBox h1 a {
+    color: #9c7d4d;
     text-decoration: none;
 }
-.infoBox .subList{
+
+.infoBox .subList {
     height: 70%;
     display: block;
     margin: auto;
 }
 
-.infoBox .subListLeft{
-    border-right:#9c7d4d 1px solid;
+.infoBox .subListLeft {
+    border-right: #9c7d4d 1px solid;
     display: block;
     float: left;
     width: 50%;
-    height: 100%;    
+    height: 100%;
 }
 
-.eachMzm{
+.eachMzm {
     height: 85%;
     display: block;
     padding-top: 15%;
@@ -215,58 +253,70 @@ section:hover{
     background-repeat: no-repeat;
 }
 
-.eachMzm .infoBox{
-    height: 80%;    
+.eachMzm .infoBox {
+    height: 80%;
 }
 
-#mzmHK{
+#mzmHK {
     background-image: url(../img/BKeachMZM_HK.jpg);
 }
-#mzmHL{
+
+#mzmHL {
     background-image: url(../img/BKeachMZM_HL.jpg);
 }
-#mzmPAC{
+
+#mzmPAC {
     background-image: url(../img/BKeachMZM_PAC.jpg);
 }
-#mzmAL{
+
+#mzmAL {
     background-image: url(../img/BKeachMZM_AL.jpg);
 }
-#mzmMS{
+
+#mzmMS {
     background-image: url(../img/BKeachMZM_MS.jpg);
 }
-#mzmZN{
+
+#mzmZN {
     background-image: url(../img/BKeachMZM_ZN-09.jpg);
 }
-#mzmLC{
+
+#mzmLC {
     background-image: url(../img/BKeachMZM_LC.jpg);
 }
-#mzmSK{
+
+#mzmSK {
     background-image: url(../img/BKeachMZM_SK.jpg);
 }
-#mzmZP{
+
+#mzmZP {
     background-image: url(../img/BKeachMZM_ZP.jpg);
 }
-#mzmPZ{
+
+#mzmPZ {
     background-image: url(../img/BKeachMZM_PZ.jpg);
 }
-#mzmML{
+
+#mzmML {
     background-image: url(../img/BKeachMZM_ML.jpg);
 }
-#mzmTP{
+
+#mzmTP {
     background-image: url(../img/BKeachMZM_ML.jpg);
 }
-.navLogo{
-    width:48%;
-    height:100%;
+
+.navLogo {
+    width: 48%;
+    height: 100%;
     float: left;
     display: block;
     background-image: url(../img/logoMenu.svg);
     background-repeat: no-repeat;
     background-size: contain;
-} 
+}
 
-.navSub{
-    width:48%;
+.navSub {
+    width: 48%;
     height: 100%;
     float: right;
     background-image: url(../img/look.png);
@@ -274,11 +324,12 @@ section:hover{
     background-size: contain;
     background-position: 90%;
 }
-.navCenter{
-    width:4%;
+
+.navCenter {
+    width: 4%;
     height: 100%;
     display: block;
-    float: left ;  
+    float: left;
     margin: 0px;
     text-align: center;
     background-image: url(../img/downIcon.svg);
@@ -287,11 +338,13 @@ section:hover{
     background-position: 50% 50%;
     opacity: 0.5;
 }
-.navCenter:hover{
+
+.navCenter:hover {
     background-position: 50% 55%;
     opacity: 1;
 }
-.navBar{
+
+.navBar {
     position: fixed;
     top: 0px;
     color: #FFF;
@@ -299,36 +352,40 @@ section:hover{
     height: 7.5%;
     width: 100%;
     text-align: center;
-    font-family: 'MyHana',serif;
-    line-height: 2; 
+    font-family: 'MyHana', serif;
+    line-height: 2;
     z-index: 40;
-    background-color: rgba(158,126,77,0.8);
+    background-color: rgba(158, 126, 77, 0.8);
     opacity: 0;
 }
 
 
-.listBox{
+.listBox {
     position: absolute;
     display: block;
     clear: both;
     width: 100%;
     opacity: 0;
-    top:-1000%;
+    top: -1000%;
     z-index: 35;
 }
-#adjNav,#adjNav:hover{
-    background-color: rgba(255,255,255,0.5);
+
+#adjNav,
+#adjNav:hover {
+    background-color: rgba(255, 255, 255, 0.5);
 }
-.navToogle{
+
+.navToogle {
     position: absolute;
     top: -9999px;
     left: -9999px;
     opacity: 0;
 }
 
-.navToogle:checked + .navCenter{
+.navToogle:checked + .navCenter {
     background-image: url(../img/upIcon.svg);
 }
+
 .navToogle:checked ~ .listBox {
     animation: backgroundFadeInlistBox 1s forwards;
 }
@@ -336,35 +393,39 @@ section:hover{
 .navToogle:unchecked ~ .listBox {
     animation: backgroundFadeOutlistBox 1s forwards;
 }
-.listBox a{
+
+.listBox a {
     display: block;
     vertical-align: middle;
     width: 7.69230%;
     padding: calc((7.69230% - 2.4em)/2) 0;
     float: left;
-    line-height:1.2;
-    color: rgba(158,126,77,1);
+    line-height: 1.2;
+    color: rgba(158, 126, 77, 1);
     text-decoration: none;
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(255, 255, 255, 0.9);
     font-size: 1em;
 }
-.listBox a:hover{
-    background-color: rgba(158,126,77,0.8);
+
+.listBox a:hover {
+    background-color: rgba(158, 126, 77, 0.8);
     color: #FFF;
 }
-footer{
-    background-color: rgba(0,0,0,0.5);
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     bottom: 0px;
-    height:3%;
+    height: 3%;
     width: 100%;
     text-align: center;
     padding: 0.25% 0;
-    -webkit-box-shadow: 0px -1px 15px 0px rgba(0,0,0,0.7);
-    -moz-box-shadow: 0px -1px 15px 0px rgba(0,0,0,0.7);
-    box-shadow: 0px -1px 15px 0px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0px -1px 15px 0px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0px -1px 15px 0px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px -1px 15px 0px rgba(0, 0, 0, 0.7);
 }
-footer a{
+
+footer a {
     display: inline-block;
     background-size: contain;
     background-repeat: no-repeat;
@@ -372,110 +433,161 @@ footer a{
     margin-top: 0.3%;
     vertical-align: middle;
 }
-footer h5{
+
+footer h5 {
     display: inline-block;
     color: #FFF;
     font-size: 0.5em;
-    font-family: 'MyHana',serif;
+    font-family: 'MyHana', serif;
     vertical-align: middle;
     margin-left: 2%
 }
-#moc{
+
+#moc {
     background-image: url(../img/footerMOC.png);
     width: 85px;
-    padding-bottom:  2%;
+    padding-bottom: 2%;
 }
-#cyc{
+
+#cyc {
     background-image: url(../img/footerCYC.png);
-    width:75px;
-    padding-bottom:  2%;
+    width: 75px;
+    padding-bottom: 2%;
 
 }
-#tbocc{
+
+#tbocc {
     background-image: url(../img/footerTBOCC.png);
     width: 110px;
-    padding-bottom:  2%;
+    padding-bottom: 2%;
 
 }
-#tnnua{
+
+#tnnua {
     background-image: url(../img/footerTNAU.png);
-    width:190px;
-    padding-bottom:  2%;
+    width: 190px;
+    padding-bottom: 2%;
 }
 
 @keyframes backgroundFadeIn {
-    from { 
-        top:-100%;
-        opacity: 0;}
-    to   { opacity: 1;
-        top:0%;}
-}
-@keyframes backgroundFadeInlistBox {
-    from { 
-        top:-500%;
-        opacity: 0;}
-    to   {
+    from {
+        top: -100%;
+        opacity: 0;
+    }
+    to {
         opacity: 1;
-        top:100%;}
+        top: 0%;
+    }
 }
+
+@keyframes backgroundFadeInlistBox {
+    from {
+        top: -500%;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        top: 100%;
+    }
+}
+
 @keyframes backgroundFadeOut {
-    from { opacity: 1;
-        top:0%; }
-    to   { opacity: 0;
-        top:-100%; }
+    from {
+        opacity: 1;
+        top: 0%;
+    }
+    to {
+        opacity: 0;
+        top: -100%;
+    }
 }
 
 @keyframes backgroundFadeOutlistBox {
-    from { opacity: 1;
-        top:100%; }
-    to   { opacity: 0;
-        top:-500%; }
+    from {
+        opacity: 1;
+        top: 100%;
+    }
+    to {
+        opacity: 0;
+        top: -500%;
+    }
 }
 
 @keyframes fadeIn {
-    from { background-color: rgba(255,255,255,0.5); } 
-    to { background-color: rgba(255,255,255,0.8); }
+    from {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    to {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
 }
 
 @keyframes fadeOut {
-    from { background-color: rgba(255,255,255,0.8); } 
-    to { background-color: rgba(255,255,255,0.5); }
+    from {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    to {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
 }
 
 @keyframes fadeInHover {
-    from { opacity: 0.9; } 
-    to { opacity: 1; }
+    from {
+        opacity: 0.9;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 
 @keyframes moveBk {
-    from { background-position: 45%; } 
-    to { background-position: 55%; }
+    from {
+        background-position: 45%;
+    }
+    to {
+        background-position: 55%;
+    }
 }
 
 @keyframes moveBkBack {
-    from { background-position: 55%; } 
-    to { background-position: 45%; }
+    from {
+        background-position: 55%;
+    }
+    to {
+        background-position: 45%;
+    }
 }
 
 @keyframes blinkBK {
-    0% {-webkit-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);
-        -moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);
-        box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);}
-    25% {-webkit-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);
-        -moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);
-        box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);}
-    50% {-webkit-box-shadow: 5px 5px 30px 0px rgba(156,125,77,1);
-        -moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,1);
-        box-shadow: 5px 5px 30px 0px rgba(156,125,77,1);}
-    75% {-webkit-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);
-        -moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);
-        box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.9);}
-    100% {-webkit-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.8);
-        -moz-box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);
-        box-shadow: 5px 5px 30px 0px rgba(156,125,77,0.7);}
+    0% {
+        -webkit-box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.7);
+        -moz-box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.7);
+        box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.7);
+    }
+    25% {
+        -webkit-box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.9);
+        -moz-box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.9);
+        box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.9);
+    }
+    50% {
+        -webkit-box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 1);
+        -moz-box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 1);
+        box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 1);
+    }
+    75% {
+        -webkit-box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.9);
+        -moz-box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.9);
+        box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.9);
+    }
+    100% {
+        -webkit-box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.8);
+        -moz-box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.7);
+        box-shadow: 5px 5px 30px 0px rgba(156, 125, 77, 0.7);
+    }
 }
-main #selectMenu .selectHover{
+
+main #selectMenu .selectHover {
     animation: blinkBK 1.5s infinite;
-    background-color: rgba(156,125,77,0.2) ;
+    background-color: rgba(156, 125, 77, 0.2);
 }
