@@ -49,26 +49,53 @@ $(document).ready(function () {
                 $(".eachMzm:last").attr("id", "mzm" + mzmCode[target]);
                 if (j != 0) $(".eachMzm:last").removeClass("firstSec");
                 $(".eachMzm:last h1").append("<a href='.#mzm" + mzmCode[target] + "'>" + mzmNameDisplayFirst[target] + "<br/>" + mzmNameDisplaySecond[target]);
-                var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[target] + "/3/public/values?alt=json";
-                $.getJSON(jsonLink, function (dataEach) {
-                    //**帶入各館舍資料**//
-                    var titleEach = [];
-                    var linkEach = [];
-                    var susEach = [];
-                    for (var k = 0; k < dataEach.feed.entry.length; k++) {
-                        titleEach[k] = dataEach.feed.entry[k].gsx$title.$t;
-                        linkEach[k] = dataEach.feed.entry[k].gsx$link.$t;
-                        susEach[k] = dataEach.feed.entry[k].gsx$suspend.$t;
-                        if (susEach[k] != " ") {
-                            $("#mzm" + mzmCode[target] + " .subListRight ").append("<li><a href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
-                        }
-                    }
-                });
+                //                var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[target] + "/3/public/values?alt=json";
+                //                $.getJSON(jsonLink, function (dataEach) {
+                //                    //**帶入各館舍資料**//
+                //                    var titleEach = [];
+                //                    var linkEach = [];
+                //                    var susEach = [];
+                //                    for (var k = 0; k < dataEach.feed.entry.length; k++) {
+                //                        titleEach[k] = dataEach.feed.entry[k].gsx$title.$t;
+                //                        linkEach[k] = dataEach.feed.entry[k].gsx$link.$t;
+                //                        susEach[k] = dataEach.feed.entry[k].gsx$suspend.$t;
+                //                        if (susEach[k] != " ") {
+                //                            $("#mzm" + mzmCode[target] + " .subListRight ").append("<li><a href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
+                //                        }
+                //                    }
+                //                });
                 if (j != (data.feed.entry.length - 1)) {
                     $(".eachMzm:last").clone().insertAfter(".eachMzm:last");
                     $(".eachMzm:last h1").empty();
                 }
+
             } //end of 帶入資料
+
+            //**建立帶入資料**// 
+            for (var l = 0; l < data.feed.entry.length; l++) {
+                var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/3/public/values?alt=json";
+                console.log("1");
+                //**帶入各館舍資料**//
+                var titleEach = [];
+                var linkEach = [];
+                var susEach = [];
+                var codeRound = mzmCode[l];
+                $.getJSON(jsonLink, function (dataEach) {
+                    console.log("2");
+                    for (var k = 0; k < dataEach.feed.entry.length; k++) {
+                        titleEach[k] = dataEach.feed.entry[k].gsx$title.$t;
+                        linkEach[k] = dataEach.feed.entry[k].gsx$link.$t;
+                        susEach[k] = dataEach.feed.entry[k].gsx$suspend.$t;
+                        console.log("3");
+                        if (susEach[k] != " ") {
+                            $("#mzm" + codeRound + " .subListRight ").append("<li><a href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
+                            console.log("4");
+                        }
+                    }
+                }); // end of Each Json
+
+            } // end of Getin 
+
         }); // end of Get JSON 
     }); //end of function
 
