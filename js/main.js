@@ -45,7 +45,7 @@ $(document).ready(function () {
                 var target = mzmRamdom[j];
                 $(".eachMzm:last").attr("id", "mzm" + mzmCode[target]);
                 if (j != 0) $(".eachMzm:last").removeClass("firstSec");
-                $(".eachMzm:last h1").append(mzmNameDisplayFirst[target] + "<br/>" + mzmNameDisplaySecond[target]);
+                $(".eachMzm:last h1").append("<a href='.#mzm" + mzmCode[target] + "'>" + mzmNameDisplayFirst[target] + "<br/>" + mzmNameDisplaySecond[target]);
                 if (j != (data.feed.entry.length - 1)) {
                     $(".eachMzm:last").clone().insertAfter(".eachMzm:last");
                     $(".eachMzm:last h1").empty();
@@ -53,7 +53,7 @@ $(document).ready(function () {
             }
         });
     });
-
+    //**開發階段用**//
     $("link").each(function () {
         var d = new Date();
         var n = d.getTime();
@@ -61,7 +61,7 @@ $(document).ready(function () {
         $(this).attr("href", $(this).attr("href") + "?" + n);
         console.log($(this).attr("href"));
     });
-
+    //**Navbar 滑動顯示**//
     let navbar = document.getElementsByClassName("navBar")[0];
     let action = document.getElementsByClassName("firstSec")[0];
     let offset = 0;
@@ -135,6 +135,7 @@ $(document).ready(function () {
         "47": "雷陣雨",
         "3200": "資料錯誤"
     };
+
     var clickItem = {
         "1": "HK",
         "2": "HL",

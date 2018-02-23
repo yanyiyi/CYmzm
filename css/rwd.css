@@ -87,6 +87,10 @@
     .eachMzm:nth-child(even) .infoBox {
         float: right;
     }
+    .eachMzm:nth-child(even) .mainContent {
+        float: left;
+    }
+
     #frontIndex main #selectMenu,
     .eachContainer {
         width: 95%;
