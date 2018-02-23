@@ -198,7 +198,7 @@ body {
 
 .mainContent {
     width: 63%;
-    height: 80%;
+    height: 90%;
     float: right;
     margin: 0 1.5%;
     border: #9c7d4d 1px solid;
@@ -296,9 +296,9 @@ section:hover {
 }
 
 .eachMzm {
-    height: 85%;
+    height: 88%;
     display: block;
-    padding-top: 15%;
+    padding-top: 12%;
     background-size: cover;
     background-position: 40%;
     background-repeat: no-repeat;
@@ -306,7 +306,7 @@ section:hover {
 }
 
 .eachMzm .infoBox {
-    height: 80%;
+    height: 90%;
     float: left;
 }
 

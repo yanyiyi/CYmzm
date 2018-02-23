@@ -28,7 +28,8 @@ $(document).ready(function () {
         var mzmNameDisplayFirst = [];
         var mzmNameDisplaySecond = [];
         var mzmRamdom = [];
-        $.getJSON('https://spreadsheets.google.com/feeds/list/1JP89lOM6MyDogTVVhGcmoUwqQyPAo6AADbfA7kLLi0Y/od6/public/values?alt=json', function (data) {
+        var mzmSheetID = [];
+        $.getJSON('https://spreadsheets.google.com/feeds/list/1JP89lOM6MyDogTVVhGcmoUwqQyPAo6AADbfA7kLLi0Y/1/public/values?alt=json', function (data) {
 
             mzmRamdom = getRandomList(0, data.feed.entry.length - 1, data.feed.entry.length);
 
@@ -38,21 +39,39 @@ $(document).ready(function () {
                 mzmName[i] = data.feed.entry[i].gsx$mzmname.$t;
                 mzmNameDisplayFirst[i] = data.feed.entry[i].gsx$mzmnamedisplayfirst.$t;
                 mzmNameDisplaySecond[i] = data.feed.entry[i].gsx$mzmnamedisplaysecond.$t;
+                mzmSheetID[i] = data.feed.entry[i].gsx$googlesheetcode.$t;
                 $("#adjNav").before("<a href='#mzm" + mzmCode[i] + "'>" + mzmNameDisplayFirst[i] + "<br/>" + mzmNameDisplaySecond[i]);
             }
+
             //**建立NavList 與帶入資料**// 
             for (var j = 0; j < data.feed.entry.length; j++) {
                 var target = mzmRamdom[j];
                 $(".eachMzm:last").attr("id", "mzm" + mzmCode[target]);
                 if (j != 0) $(".eachMzm:last").removeClass("firstSec");
                 $(".eachMzm:last h1").append("<a href='.#mzm" + mzmCode[target] + "'>" + mzmNameDisplayFirst[target] + "<br/>" + mzmNameDisplaySecond[target]);
+                var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[target] + "/3/public/values?alt=json";
+                $.getJSON(jsonLink, function (dataEach) {
+                    //**帶入各館舍資料**//
+                    var titleEach = [];
+                    var linkEach = [];
+                    var susEach = [];
+                    for (var k = 0; k < dataEach.feed.entry.length; k++) {
+                        titleEach[k] = dataEach.feed.entry[k].gsx$title.$t;
+                        linkEach[k] = dataEach.feed.entry[k].gsx$link.$t;
+                        susEach[k] = dataEach.feed.entry[k].gsx$suspend.$t;
+                        if (susEach[k] != " ") {
+                            $("#mzm" + mzmCode[target] + " .subListRight ").append("<li><a href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
+                        }
+                    }
+                });
                 if (j != (data.feed.entry.length - 1)) {
                     $(".eachMzm:last").clone().insertAfter(".eachMzm:last");
                     $(".eachMzm:last h1").empty();
                 }
-            }
-        });
-    });
+            } //end of 帶入資料
+        }); // end of Get JSON 
+    }); //end of function
+
     //**開發階段用**//
     $("link").each(function () {
         var d = new Date();
