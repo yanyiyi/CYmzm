@@ -1,12 +1,14 @@
 $(document).ready(function () {
 
-    //**亂數數**//
+    var mzmSheetID = [];
+    var mzmAmount; //目前館數
+    var mzmCode = []; //博物館代碼
+    //**得單一亂數**//
     function getRandom(minNum, maxNum) { //取得亂數
         return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
     }
-
     //**亂數不重複數列**//    
-    function getRandomList(minNum, maxNum, n) { //產生不重覆n數
+    function getRandomList(minNum, maxNum, n) { //最小、最大，產生幾個數
         var rdmList = [n]; //儲存產生的陣列
         for (var i = 0; i < n; i++) {
             var rdm = 0; //
@@ -21,87 +23,75 @@ $(document).ready(function () {
         return rdmList;
     }
 
-    //**讀入資料**//    
+    //**讀入各館舍基本資料**//    
     $(function () {
-        var mzmCode = [];
+
         var mzmName = [];
         var mzmNameDisplayFirst = [];
         var mzmNameDisplaySecond = [];
         var mzmRamdom = [];
-        var mzmSheetID = [];
+
         $.getJSON('https://spreadsheets.google.com/feeds/list/1JP89lOM6MyDogTVVhGcmoUwqQyPAo6AADbfA7kLLi0Y/1/public/values?alt=json', function (data) {
-
             mzmRamdom = getRandomList(0, data.feed.entry.length - 1, data.feed.entry.length);
-
+            mzmAmount = data.feed.entry.length; //帶入目前館數
             //**建立NavList 與帶入資料**//
-            for (var i = 0; i < data.feed.entry.length; i++) {
+            for (var i = 0; i < mzmAmount; i++) {
                 mzmCode[i] = data.feed.entry[i].gsx$mzmcode.$t;
                 mzmName[i] = data.feed.entry[i].gsx$mzmname.$t;
                 mzmNameDisplayFirst[i] = data.feed.entry[i].gsx$mzmnamedisplayfirst.$t;
                 mzmNameDisplaySecond[i] = data.feed.entry[i].gsx$mzmnamedisplaysecond.$t;
                 mzmSheetID[i] = data.feed.entry[i].gsx$googlesheetcode.$t;
-                $("#adjNav").before("<a href='#mzm" + mzmCode[i] + "'>" + mzmNameDisplayFirst[i] + "<br/>" + mzmNameDisplaySecond[i]);
+                $("#adjNav").before("<a href='#mzm" + mzmCode[i] + "'>" + mzmNameDisplayFirst[i] + "<br/>" + mzmNameDisplaySecond[i]); //帶入標題
             }
-
-            //**建立NavList 與帶入資料**// 
-            for (var j = 0; j < data.feed.entry.length; j++) {
+            //**建立下方每一個館舍區塊**// 
+            for (var j = 0; j < mzmAmount; j++) {
                 var target = mzmRamdom[j];
                 var targetOri = mzmRamdom[j + 1];
                 $(".eachMzm:last").attr("id", "mzm" + mzmCode[target]);
                 $(".eachMzm:last iframe").attr("id", "goPage" + mzmCode[targetOri]);
                 $(".eachMzm:last iframe").attr("name", "goPage" + mzmCode[targetOri]);
                 if (j != 0) $(".eachMzm:last").removeClass("firstSec");
-                $(".eachMzm:last h1").append("<a href='.#mzm" + mzmCode[target] + "'>" + mzmNameDisplayFirst[target] + "<br/>" + mzmNameDisplaySecond[target]);
-                //                var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[target] + "/3/public/values?alt=json";
-                //                $.getJSON(jsonLink, function (dataEach) {
-                //                    //**帶入各館舍資料**//
-                //                    var titleEach = [];
-                //                    var linkEach = [];
-                //                    var susEach = [];
-                //                    for (var k = 0; k < dataEach.feed.entry.length; k++) {
-                //                        titleEach[k] = dataEach.feed.entry[k].gsx$title.$t;
-                //                        linkEach[k] = dataEach.feed.entry[k].gsx$link.$t;
-                //                        susEach[k] = dataEach.feed.entry[k].gsx$suspend.$t;
-                //                        if (susEach[k] != " ") {
-                //                            $("#mzm" + mzmCode[target] + " .subListRight ").append("<li><a href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
-                //                        }
-                //                    }
-                //                });
+                $(".eachMzm:last h1").append("<a href='#mzm" + mzmCode[target] + "'>" + mzmNameDisplayFirst[target] + "<br/>" + mzmNameDisplaySecond[target]);
                 if (j != (data.feed.entry.length - 1)) {
                     $(".eachMzm:last").clone().insertAfter(".eachMzm:last");
                     $(".eachMzm:last h1").empty();
                 }
-
             } //end of 帶入資料
-
-            //**建立帶入資料**// 
-            for (var l = 0; l < 1; l++) {
-                var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/3/public/values?alt=json";
-                console.log("1," + l);
-                //**帶入各館舍資料**//
-                var titleEach = [];
-                var linkEach = [];
-                var susEach = [];
-                var codeRound = mzmCode[l];
-                $.getJSON(jsonLink, function (dataEach) {
-
-                    for (var k = 0; k < dataEach.feed.entry.length; k++) {
-                        titleEach[k] = dataEach.feed.entry[k].gsx$title.$t;
-                        linkEach[k] = dataEach.feed.entry[k].gsx$link.$t;
-                        susEach[k] = dataEach.feed.entry[k].gsx$suspend.$t;
-                        if (susEach[k] != " ") {
-
-                            $("#mzm" + codeRound + " .subListRight ").append("<li><a target='goPage" + codeRound + "' href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
-
-                        }
-                    }
-                }); // end of Each Json
-            } // end of Getin 
-
+            eachMzmFun(mzmAmount);
         }); // end of Get JSON 
-    }); //end of function
 
+
+    }); //end of function
+    function eachMzmFun(mzmA) {
+        console.log(mzmA);
+        for (var l = 0; l < mzmA; l++) {
+            console.log(mzmSheetID[l]);
+            var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/3/public/values?alt=json";
+            //**帶入各館舍資料**//
+            var codeRound = mzmCode[l];
+            console.log(codeRound);
+            eachMzmGetJson(jsonLink, codeRound, mzmA);
+        } // end of Getin   
+    } //end of function
     //**開發階段用**//
+
+    function eachMzmGetJson(jLink, cRound, mzmA) {
+        $.getJSON(jLink, function (dataEach) {
+            var titleEach = [];
+            var linkEach = [];
+            var susEach = [];
+            for (var k = 0; k < mzmA; k++) {
+                titleEach[k] = dataEach.feed.entry[k].gsx$title.$t;
+                linkEach[k] = dataEach.feed.entry[k].gsx$link.$t;
+                susEach[k] = dataEach.feed.entry[k].gsx$suspend.$t;
+                console.log(cRound + "," + titleEach[k] + "," + linkEach[k] + "," + susEach[k] + "end");
+                if (susEach[k] == "") {
+                    $("#mzm" + cRound + " .subListRight").append("<li><a target='goPage" + cRound + "' href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
+                }
+            }
+        }); // end of Each Json
+    }
+
     $("link").each(function () {
         var d = new Date();
         var n = d.getTime();
@@ -109,6 +99,7 @@ $(document).ready(function () {
         $(this).attr("href", $(this).attr("href") + "?" + n);
         console.log($(this).attr("href"));
     });
+
     //**Navbar 滑動顯示**//
     let navbar = document.getElementsByClassName("navBar")[0];
     let action = document.getElementsByClassName("firstSec")[0];
