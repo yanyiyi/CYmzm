@@ -69,11 +69,9 @@ $(document).ready(function () {
             var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/3/public/values?alt=json";
             //**帶入各館舍資料**//
             var codeRound = mzmCode[l];
-            console.log(codeRound);
             eachMzmGetJson(jsonLink, codeRound, mzmA);
         } // end of Getin   
     } //end of function
-    //**開發階段用**//
 
     function eachMzmGetJson(jLink, cRound, mzmA) {
         $.getJSON(jLink, function (dataEach) {
@@ -92,6 +90,7 @@ $(document).ready(function () {
         }); // end of Each Json
     }
 
+    //**開發階段用**//
     $("link").each(function () {
         var d = new Date();
         var n = d.getTime();
