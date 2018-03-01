@@ -58,21 +58,28 @@ $(document).ready(function () {
                 }
             } //end of 帶入資料
             eachMzmFun(mzmAmount);
+
+            $("a.sLink").each(function () {
+                //var sLinkHref = $(".sLink").attr("href");
+                console.log("啊啊啊啊");
+            });
+
         }); // end of Get JSON 
-
-
-    }); //end of function
+    }); //end of main function
+    //將JSON讀入
     function eachMzmFun(mzmA) {
         console.log(mzmA);
         for (var l = 0; l < mzmA; l++) {
             console.log(mzmSheetID[l]);
+            var jsonEvent = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/2/public/values?alt=json";
+            var jsonNews = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/2/public/values?alt=json";
             var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/3/public/values?alt=json";
             //**帶入各館舍資料**//
             var codeRound = mzmCode[l];
             eachMzmGetJson(jsonLink, codeRound, mzmA);
         } // end of Getin   
     } //end of function
-
+    //讀入資料
     function eachMzmGetJson(jLink, cRound, mzmA) {
         $.getJSON(jLink, function (dataEach) {
             var titleEach = [];
@@ -84,11 +91,24 @@ $(document).ready(function () {
                 susEach[k] = dataEach.feed.entry[k].gsx$suspend.$t;
                 console.log(cRound + "," + titleEach[k] + "," + linkEach[k] + "," + susEach[k] + "end");
                 if (susEach[k] == "") {
-                    $("#mzm" + cRound + " .subListRight").append("<li><a target='goPage" + cRound + "' href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
+                    $("#mzm" + cRound + " .subListRight").append("<li><a class='sLink' href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
                 }
+                $.each($(".sLink"), function (index, value) {
+                    console.log(index + ":" + $(value).text() + ">" + $(value).attr("href"));
+                    var eachLinkHref = $(value).attr("href");
+                    $(value).attr("class", "sLink" + cRound)
+                    $(value).removeAttr("href");
+                    $(value).click(function () {
+                        var getWhichMzm = $(value).attr("class").substr(5);
+                        $("#mzm" + getWhichMzm + " iframe").attr("src", eachLinkHref);
+                        $("#mzm" + getWhichMzm + " h2").text($(value).text());
+                        $("#mzm" + getWhichMzm + " .functionBox a.website").text(eachLinkHref.substr(0, 50));
+                        $("#mzm" + getWhichMzm + " .functionBox a").attr("href", eachLinkHref);
+                    });
+                });
             }
         }); // end of Each Json
-    }
+    } //end of MzmGetJsonFunction
 
     //**開發階段用**//
     $("link").each(function () {
@@ -191,7 +211,7 @@ $(document).ready(function () {
     }
     var clickMark = 0;
     $.each(clickItem, function (mzmKey, mzmName) {
-        var mzmID = "#mzm" + mzmName + " .infoBox"
+        var mzmID = "#mzm" + mzmName + " .infoBox";
         $(".mzm" + mzmName).hover(function () {
             if (clickMark == 0) {
                 $("#select1").addClass("selectHover");
@@ -209,6 +229,7 @@ $(document).ready(function () {
                 $("#select3").removeClass("selectHover");
             }
         });
+
         $(".mzm" + mzmName).click(function () {
             var infoBoxContent = $(mzmID).children().clone(true);
             clickMark++;
@@ -218,27 +239,24 @@ $(document).ready(function () {
                 $(".select1Btn").removeClass("select1Btn");
                 $(this).addClass("select1Btn");
                 $(this).addClass("activeDisplay");
-
                 $("#select1").append(infoBoxContent);
                 $("#select1").removeClass("selectHover");
 
             } else if (clickMark == 2) {
                 $("#select2").children().remove();
-
                 $(".select2Btn").removeClass("activeDisplay");
                 $(".select2Btn").removeClass("select2Btn");
                 $(this).addClass("select2Btn");
                 $(this).addClass("activeDisplay");
                 $("#select2").append(infoBoxContent);
                 $("#select2").removeClass("selectHover");
+
             } else if (clickMark == 3) {
                 $("#select3").children().remove();
-
                 $(".select3Btn").removeClass("activeDisplay");
                 $(".select3Btn").removeClass("select3Btn");
                 $(this).addClass("select3Btn");
                 $(this).addClass("activeDisplay");
-
                 $("#select3").append(infoBoxContent);
                 $("#select3").removeClass("selectHover");
                 clickMark = 0;
