@@ -309,10 +309,12 @@ section:hover {
     font-size: 1.05em;
     display: inline-block;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .subList .subListRight a:hover {
     color: #9c7d4d;
+    cursor: pointer;
 }
 
 .infoBox .subListLeft {
@@ -486,11 +488,13 @@ section:hover {
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.9);
     font-size: 1em;
+    cursor: pointer;
 }
 
 .listBox a:hover {
     background-color: rgba(158, 126, 77, 0.8);
     color: #FFF;
+    cursor: pointer;
 }
 
 footer {

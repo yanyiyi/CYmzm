@@ -93,8 +93,8 @@ $(document).ready(function () {
                 if (susEach[k] == "") {
                     $("#mzm" + cRound + " .subListRight").append("<li><a class='sLink' href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
                 }
-                $.each($(".sLink"), function (index, value) {
-                    console.log(index + ":" + $(value).text() + ">" + $(value).attr("href"));
+                $.each($(".eachMzm .eachContainer .infoBox .sLink"), function (index, value) {
+                    console.log(index + "EACH:" + $(value).text() + ">" + $(value).attr("href"));
                     var eachLinkHref = $(value).attr("href");
                     $(value).attr("class", "sLink" + cRound)
                     $(value).removeAttr("href");
@@ -102,7 +102,7 @@ $(document).ready(function () {
                         var getWhichMzm = $(value).attr("class").substr(5);
                         $("#mzm" + getWhichMzm + " iframe").attr("src", eachLinkHref);
                         $("#mzm" + getWhichMzm + " h2").text($(value).text());
-                        $("#mzm" + getWhichMzm + " .functionBox a.website").text(eachLinkHref.substr(0, 50));
+                        $("#mzm" + getWhichMzm + " .functionBox a.website").text(eachLinkHref.substr(0, 30) + "...");
                         $("#mzm" + getWhichMzm + " .functionBox a").attr("href", eachLinkHref);
                     });
                 });
@@ -210,6 +210,8 @@ $(document).ready(function () {
         "13": "BC"
     }
     var clickMark = 0;
+
+    //浮動的閃爍
     $.each(clickItem, function (mzmKey, mzmName) {
         var mzmID = "#mzm" + mzmName + " .infoBox";
         $(".mzm" + mzmName).hover(function () {
@@ -229,7 +231,7 @@ $(document).ready(function () {
                 $("#select3").removeClass("selectHover");
             }
         });
-
+        //按了的反應
         $(".mzm" + mzmName).click(function () {
             var infoBoxContent = $(mzmID).children().clone(true);
             clickMark++;
@@ -240,6 +242,7 @@ $(document).ready(function () {
                 $(this).addClass("select1Btn");
                 $(this).addClass("activeDisplay");
                 $("#select1").append(infoBoxContent);
+                getClickScrollToID(mzmName);
                 $("#select1").removeClass("selectHover");
 
             } else if (clickMark == 2) {
@@ -249,6 +252,7 @@ $(document).ready(function () {
                 $(this).addClass("select2Btn");
                 $(this).addClass("activeDisplay");
                 $("#select2").append(infoBoxContent);
+                getClickScrollToID(mzmName);
                 $("#select2").removeClass("selectHover");
 
             } else if (clickMark == 3) {
@@ -258,13 +262,53 @@ $(document).ready(function () {
                 $(this).addClass("select3Btn");
                 $(this).addClass("activeDisplay");
                 $("#select3").append(infoBoxContent);
+                getClickScrollToID(mzmName);
                 $("#select3").removeClass("selectHover");
                 clickMark = 0;
             }
 
+
         });
     }); //for
 
+    function getClickScrollToID(mzmN) {
+        console.log("GO!" + mzmN);
+        $.each($("main a.sLink" + mzmN), function (index, value) {
+            console.log(index + "SELECT:" + $(value).text());
+            $(value).click(function () {
+                // 讓捲軸用動畫的方式移動到 館舍 的 top 位置
+                // sam 修正 Opera 問題
 
+                var offsetOfSection = parseInt($("#mzm" + mzmN).offset().top);
+                console.log(offsetOfSection);
+                var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $("html") : $("body")) : $("html, body");
+                $body.animate({
+                    scrollTop: offsetOfSection
+                }, 2000);
+            });
+        }); /////main .sLink
+
+        $.each($("main h1 a"), function (index, value) {
+            $(value).click(function () {
+                // 讓捲軸用動畫的方式移動到 館舍 的 top 位置
+                // sam 修正 Opera 問題
+
+                var offsetOfSection = parseInt($("#mzm" + mzmN).offset().top);
+                console.log(offsetOfSection);
+                var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $("html") : $("body")) : $("html, body");
+                $body.animate({
+                    scrollTop: offsetOfSection
+                }, 2000);
+            });
+        });
+    }
+
+    $("a.navLogo").click(function () {
+        var $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $("html") : $("body")) : $("html, body");
+        $body.animate({
+            scrollTop: 0
+        }, 2000);
+
+    });
 
 });
