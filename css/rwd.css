@@ -6,7 +6,8 @@
 }
 
 @media (max-width: 767px) {
-    #frontLogo {
+
+    #frontIndex main #selectMenu {
         display: none;
     }
     .infoBox h1 {
@@ -51,7 +52,9 @@
     .navSub {
         display: none;
     }
-    .selectMenu {}
+    #frontIndex main #selectMenu {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
@@ -79,6 +82,9 @@
     #adjNav {
         width: calc(14.28571428%*1);
         padding: calc((14.28571428%)/2) 0;
+    }
+    #frontIndex main #selectMenu {
+        display: block;
     }
 }
 

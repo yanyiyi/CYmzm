@@ -741,3 +741,21 @@ iframe {
     background-color: rgba(255, 255, 255, 0.8);
     display: none;
 }
+
+.loadingPin {
+    width: 12em;
+    margin: 60% auto;
+    text-align: center;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    font-family: "myHana", serif;
+    line-height: 1.5;
+}
+
+.loadingPin img {
+    width: 30%;
+}
+
+.loadingPin p {
+    color: #888;
+}
