@@ -7,17 +7,17 @@
 
 @media (max-width: 767px) {
 
-    #frontIndex main #selectMenu {
+    #frontLogo {
         display: none;
     }
     .infoBox h1 {
         font-size: 1.2em;
     }
-    .infoBox {
-        width: 90%;
+    .eachMzm .infoBox {
+        width: 95%;
         margin: 0 auto;
         float: none;
-        height: 20%;
+        height: 90%;
     }
     .navCenter {
         float: right;
@@ -55,9 +55,15 @@
     #frontIndex main #selectMenu {
         display: none;
     }
+    .mainContent {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) {
+    .mainContent {
+        display: block;
+    }
     .navSub {
         display: block;
     }
@@ -87,7 +93,6 @@
         display: block;
     }
 }
-
 
 @media (min-width: 992px) {
     .eachMzm:nth-child(even) .infoBox {

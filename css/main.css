@@ -742,14 +742,17 @@ iframe {
     display: none;
 }
 
+
 .loadingPin {
+    padding: calc(50% - 4em) 0;
+    margin: 0 auto;
     width: 12em;
-    margin: 60% auto;
     text-align: center;
     font-size: 0.8em;
     letter-spacing: 0.2em;
     font-family: "myHana", serif;
     line-height: 1.5;
+    display: block;
 }
 
 .loadingPin img {
