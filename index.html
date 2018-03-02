@@ -5,14 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script id="scriptMain" src="./js/main.js"></script>
-    <script>
-        var t = new Date();
-        var tn = t.getTime();
-        $("#scriptMain").attr("src", "./js/main.js?" + tn);
-    </script>
+    <script id="scriptMain" src="./js/main.js?20180302"></script>
     <title>吟遊諸羅 Reading ChiaYi - 嘉義縣博物館與地方文化館</title>
-
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/rwd.css">
@@ -25,7 +19,6 @@
                 <div id="frontLogo">
                 </div>
                 <div id="navMapBk">
-
                 </div>
                 <a class="eachButton mzmHK">
                     <div class="btn"></div>
@@ -142,7 +135,16 @@
             <div class="infoBox">
                 <h1></h1>
                 <div class="subList">
-                    <div class="subListLeft"></div>
+                    <div class="subListLeft">
+                        <h3 class="eventTitle"></h3>
+                        <div class="eventContent">
+
+                        </div>
+                        <h3 class="newsTitle"></h3>
+                        <div class="newsContent">
+
+                        </div>
+                    </div>
                     <div class="subListRight"></div>
                 </div>
             </div>

@@ -4,10 +4,24 @@
     src: url("../fonts/HanaMinOTPr6N-Regular.otf") format("opentype");
 }
 
+@font-face {
+    /*仿宋*/
+    font-family: 'cwTeXFangSong';
+    font-style: normal;
+    font-weight: 1000;
+    src: url(//fonts.gstatic.com/ea/cwtexfangsong/v3/cwTeXFangSong-zhonly.eot);
+    src: url(//fonts.gstatic.com/ea/cwtexfangsong/v3/cwTeXFangSong-zhonly.eot?#iefix) format('embedded-opentype'),
+    url(//fonts.gstatic.com/ea/cwtexfangsong/v3/cwTeXFangSong-zhonly.woff2) format('woff2'),
+    url(//fonts.gstatic.com/ea/cwtexfangsong/v3/cwTeXFangSong-zhonly.woff) format('woff'),
+    url(//fonts.gstatic.com/ea/cwtexfangsong/v3/cwTeXFangSong-zhonly.ttf) format('truetype');
+}
+
+
 html,
 body {
     height: 100%;
     font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
 }
 
 body {
@@ -52,7 +66,7 @@ body {
     font-family: 'MyHana', serif;
     line-height: 0.95;
     font-weight: 800;
-    font-size: 0.5em;
+    font-size: 0.75em;
     color: #9c7d4d;
     background-color: #FFF;
     padding: 0.25em;
@@ -64,7 +78,7 @@ body {
 
 .eachButton h4:first-of-type,
 .eachButton:hover h4:first-of-type {
-    /*    border-bottom: none;*/
+    /* border-bottom: none; */
 }
 
 .eachButton h4:last-of-type,
@@ -183,6 +197,7 @@ body {
     height: 90%;
     border: #9c7d4d 1px solid;
     float: left;
+    overflow: hidden;
 }
 
 .infoBox {
@@ -198,7 +213,7 @@ body {
 
 .mainContent {
     width: 63%;
-    height: 90%;
+    height: 85%;
     float: right;
     margin: 0 1.5%;
     border: #9c7d4d 1px solid;
@@ -303,16 +318,21 @@ section:hover {
     list-style-type: none;
 }
 
-.subList .subListRight a {
+.subList a {
     color: #4d4d4d;
     padding: 5px;
-    font-size: 1.05em;
+    font-size: 1.2em;
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
+    font-family: "cwTeXFangSong";
 }
 
-.subList .subListRight a:hover {
+.subList h3 {
+    border-bottom: #d4cab4 1px solid;
+}
+
+.subList a:hover {
     color: #9c7d4d;
     cursor: pointer;
 }
@@ -325,10 +345,50 @@ section:hover {
     height: 100%;
 }
 
+.infoBox .subListLeft li {
+    font-family: 'MyHana', serif;
+    font-size: 1em;
+    list-style-type: none;
+    padding: 5px 5px 0 5px;
+    clear: both;
+}
+
+.timeStramp {
+    display: inline-block;
+    color: #9c7d4d;
+    width: 25%;
+    font-size: 0.9em;
+}
+
+.newTag {
+    font-size: 0.9em;
+    float: right;
+    display: inline-block;
+    background-color: #9c7d4d;
+    padding: 0.15em 0.3em;
+    color: #FFF;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    /*    border: #FFF 1px solid;*/
+}
+
+.infoBox .subListLeft li a {
+    display: inline-block;
+    width: 100%;
+    padding: 5px 0 5px 0;
+    font-size: 0.8em;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 100;
+    text-align: justify;
+    line-height: 1.2;
+}
+
+
 .eachMzm {
-    height: 88%;
+    height: 90%;
     display: block;
-    padding-top: 12%;
+    padding-top: 10%;
     background-size: cover;
     background-position: 40%;
     background-repeat: no-repeat;
@@ -336,7 +396,7 @@ section:hover {
 }
 
 .eachMzm .infoBox {
-    height: 90%;
+    height: 85%;
     float: left;
 }
 
@@ -679,4 +739,5 @@ main #selectMenu .selectHover {
 
 iframe {
     background-color: rgba(255, 255, 255, 0.8);
+    display: none;
 }

@@ -1,8 +1,9 @@
 $(document).ready(function () {
 
-    var mzmSheetID = [];
+    var mzmSheetID = []; //博物館資料表代碼
     var mzmAmount; //目前館數
     var mzmCode = []; //博物館代碼
+
     //**得單一亂數**//
     function getRandom(minNum, maxNum) { //取得亂數
         return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
@@ -30,6 +31,8 @@ $(document).ready(function () {
         var mzmNameDisplayFirst = [];
         var mzmNameDisplaySecond = [];
         var mzmRamdom = [];
+        var mzmEventTitle = [];
+        var mzmNewsTitle = [];
 
         $.getJSON('https://spreadsheets.google.com/feeds/list/1JP89lOM6MyDogTVVhGcmoUwqQyPAo6AADbfA7kLLi0Y/1/public/values?alt=json', function (data) {
             mzmRamdom = getRandomList(0, data.feed.entry.length - 1, data.feed.entry.length);
@@ -40,29 +43,32 @@ $(document).ready(function () {
                 mzmName[i] = data.feed.entry[i].gsx$mzmname.$t;
                 mzmNameDisplayFirst[i] = data.feed.entry[i].gsx$mzmnamedisplayfirst.$t;
                 mzmNameDisplaySecond[i] = data.feed.entry[i].gsx$mzmnamedisplaysecond.$t;
+                mzmEventTitle[i] = data.feed.entry[i].gsx$eventtitle.$t;
+                mzmNewsTitle[i] = data.feed.entry[i].gsx$newstitle.$t;
                 mzmSheetID[i] = data.feed.entry[i].gsx$googlesheetcode.$t;
+                //建立 Navbar
                 $("#adjNav").before("<a href='#mzm" + mzmCode[i] + "'>" + mzmNameDisplayFirst[i] + "<br/>" + mzmNameDisplaySecond[i]); //帶入標題
             }
             //**建立下方每一個館舍區塊**// 
             for (var j = 0; j < mzmAmount; j++) {
                 var target = mzmRamdom[j];
-                var targetOri = mzmRamdom[j + 1];
                 $(".eachMzm:last").attr("id", "mzm" + mzmCode[target]);
-                $(".eachMzm:last iframe").attr("id", "goPage" + mzmCode[targetOri]);
-                $(".eachMzm:last iframe").attr("name", "goPage" + mzmCode[targetOri]);
-                if (j != 0) $(".eachMzm:last").removeClass("firstSec");
+                $(".eachMzm:last iframe").attr("id", "goPage" + mzmCode[target]);
+                $(".eachMzm:last iframe").attr("name", "goPage" + mzmCode[target]);
+                if (j != 0) $(".eachMzm:last").removeClass("firstSec"); //如果是第一個館才要有 firstSec
+
                 $(".eachMzm:last h1").append("<a href='#mzm" + mzmCode[target] + "'>" + mzmNameDisplayFirst[target] + "<br/>" + mzmNameDisplaySecond[target]);
+                $(".eachMzm:last .subListLeft .eventTitle").append("<a>" + mzmEventTitle[target] + "</a>");
+                $(".eachMzm:last .subListLeft .newsTitle").append("<a>" + mzmNewsTitle[target] + "</a>");
+
+                //**複製下一個 除非是最後一個區域**///
                 if (j != (data.feed.entry.length - 1)) {
                     $(".eachMzm:last").clone().insertAfter(".eachMzm:last");
                     $(".eachMzm:last h1").empty();
+                    $(".eachMzm:last h3").empty();
                 }
             } //end of 帶入資料
             eachMzmFun(mzmAmount);
-
-            $("a.sLink").each(function () {
-                //var sLinkHref = $(".sLink").attr("href");
-                console.log("啊啊啊啊");
-            });
 
         }); // end of Get JSON 
     }); //end of main function
@@ -71,15 +77,52 @@ $(document).ready(function () {
         console.log(mzmA);
         for (var l = 0; l < mzmA; l++) {
             console.log(mzmSheetID[l]);
-            var jsonEvent = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/2/public/values?alt=json";
+            var jsonEvent = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/1/public/values?alt=json";
             var jsonNews = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/2/public/values?alt=json";
             var jsonLink = "https://spreadsheets.google.com/feeds/list/" + mzmSheetID[l] + "/3/public/values?alt=json";
             //**帶入各館舍資料**//
             var codeRound = mzmCode[l];
             eachMzmGetJson(jsonLink, codeRound, mzmA);
+            eachMzmGetNewsJson(jsonNews, codeRound, mzmA);
         } // end of Getin   
     } //end of function
     //讀入資料
+    //    function eachMzmGetEventJson(jLink, cRound, mzmA) {
+    //        $.getJSON(jLink, function (dataEach) {
+    //            var titleEventEach = [];
+    //            var linkEventEach = [];
+    //            var timeEventEach = [];
+    //            var IMGEventEach = [];
+    //            for (var k = 0; k < mzmA; k++) {
+    //                titleEventEach[k] = ;
+    //                linkEventEach[k] = ;
+    //                timeEventEach[k] = ;
+    //                IMGEventEach[k] = ;
+    //            }
+    //        });
+    //    }
+    function eachMzmGetNewsJson(newsLink, cRound, mzmA) {
+        console.log("!!!");
+        $.getJSON(newsLink, function (newsEach) {
+            console.log("!!!！！！");
+            var titleNewsEach = [];
+            var linkNewsEach = [];
+            var timeNewsEach = [];
+            var tagNewsEach = [];
+            var susNews = [];
+            for (var k = 0; k < mzmA; k++) {
+                titleNewsEach[k] = newsEach.feed.entry[k].gsx$name.$t;
+                linkNewsEach[k] = newsEach.feed.entry[k].gsx$link.$t;
+                timeNewsEach[k] = newsEach.feed.entry[k].gsx$day.$t;
+                tagNewsEach[k] = newsEach.feed.entry[k].gsx$tag.$t;
+                susNews[k] = newsEach.feed.entry[k].gsx$suspend.$t;
+                if (susNews[k] == "") {
+                    $("#mzm" + cRound + " .subListLeft .newsContent").append("<li><span class='timeStramp'>" + timeNewsEach[k] + "</span><span class='newTag'>" + tagNewsEach[k] + "</span><a class='newsLink' href ='" + linkNewsEach[k] + "' > " + titleNewsEach[k] + " </a></li>");
+                }
+            }
+        });
+    }
+
     function eachMzmGetJson(jLink, cRound, mzmA) {
         $.getJSON(jLink, function (dataEach) {
             var titleEach = [];
@@ -89,10 +132,11 @@ $(document).ready(function () {
                 titleEach[k] = dataEach.feed.entry[k].gsx$title.$t;
                 linkEach[k] = dataEach.feed.entry[k].gsx$link.$t;
                 susEach[k] = dataEach.feed.entry[k].gsx$suspend.$t;
-                console.log(cRound + "," + titleEach[k] + "," + linkEach[k] + "," + susEach[k] + "end");
+                //                console.log(cRound + "," + titleEach[k] + "," + linkEach[k] + "," + susEach[k] + "end");
                 if (susEach[k] == "") {
                     $("#mzm" + cRound + " .subListRight").append("<li><a class='sLink' href ='" + linkEach[k] + "' > " + titleEach[k] + " </a></li> ");
                 }
+                //**關於連結的處理**//
                 $.each($(".eachMzm .eachContainer .infoBox .sLink"), function (index, value) {
                     console.log(index + "EACH:" + $(value).text() + ">" + $(value).attr("href"));
                     var eachLinkHref = $(value).attr("href");
@@ -100,6 +144,7 @@ $(document).ready(function () {
                     $(value).removeAttr("href");
                     $(value).click(function () {
                         var getWhichMzm = $(value).attr("class").substr(5);
+                        $("#mzm" + getWhichMzm + " iframe").show();
                         $("#mzm" + getWhichMzm + " iframe").attr("src", eachLinkHref);
                         $("#mzm" + getWhichMzm + " h2").text($(value).text());
                         $("#mzm" + getWhichMzm + " .functionBox a.website").text(eachLinkHref.substr(0, 30) + "...");
@@ -120,16 +165,16 @@ $(document).ready(function () {
     });
 
     //**Navbar 滑動顯示**//
-    let navbar = document.getElementsByClassName("navBar")[0];
+    let navBar = document.getElementsByClassName("navBar")[0];
     let action = document.getElementsByClassName("firstSec")[0];
     let offset = 0;
     window.addEventListener("scroll", () => {
         let bottom = action.getBoundingClientRect().bottom;
         if (bottom < action.offsetHeight - offset || window.innerWidth <= 768) {
-            navbar.style.animationDuration = "0.5s";
-            navbar.style.animationFillMode = "forwards";
-            navbar.style.animationName = "backgroundFadeIn";
-        } else navbar.style.animationName = "backgroundFadeOut";
+            navBar.style.animationDuration = "0.5s";
+            navBar.style.animationFillMode = "forwards";
+            navBar.style.animationName = "backgroundFadeIn";
+        } else navBar.style.animationName = "backgroundFadeOut";
     });
 
 
@@ -142,7 +187,7 @@ $(document).ready(function () {
 
 
 
-    weather_con = {
+    var weather_con = {
         "0": "龍捲風",
         "1": "熱帶風暴",
         "2": "颶風",
