@@ -326,6 +326,7 @@ section:hover {
     text-decoration: none;
     cursor: pointer;
     font-family: "cwTeXFangSong";
+    word-break: break-all;
 }
 
 .subList h3 {
@@ -351,13 +352,16 @@ section:hover {
     list-style-type: none;
     padding: 5px 5px 0 5px;
     clear: both;
+    word-break: break-all;
 }
 
+
 .timeStramp {
-    display: inline-block;
     color: #9c7d4d;
-    width: 25%;
+
     font-size: 0.9em;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .newTag {
@@ -370,7 +374,6 @@ section:hover {
     border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
     -webkit-border-radius: 3px 3px 3px 3px;
-    /*    border: #FFF 1px solid;*/
 }
 
 .infoBox .subListLeft li a {
