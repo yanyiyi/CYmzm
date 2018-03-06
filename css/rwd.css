@@ -72,7 +72,10 @@
         width: 100%;
     }
     .eachMzm:nth-child(even) .infoBox {
-        float: none;
+        float: right;
+    }
+    .eachMzm:nth-child(even) .mainContent {
+        float: left;
     }
     footer {
         height: 3%;
@@ -115,6 +118,9 @@
         width: calc(11.111%*5);
         padding: calc((11.111%)/2) 0;
         display: block;
+    }
+    .timeStramp {
+        width: 100%;
     }
 
 }

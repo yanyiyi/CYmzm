@@ -84,27 +84,41 @@ $(document).ready(function () {
             var codeRound = mzmCode[l];
             eachMzmGetJson(jsonLink, codeRound, mzmA);
             eachMzmGetNewsJson(jsonNews, codeRound, mzmA);
+            eachMzmGetEventJson(jsonEvent, codeRound, mzmA);
         } // end of Getin   
     } //end of function
-    //讀入資料
-    //    function eachMzmGetEventJson(jLink, cRound, mzmA) {
-    //        $.getJSON(jLink, function (dataEach) {
-    //            var titleEventEach = [];
-    //            var linkEventEach = [];
-    //            var timeEventEach = [];
-    //            var IMGEventEach = [];
-    //            for (var k = 0; k < mzmA; k++) {
-    //                titleEventEach[k] = ;
-    //                linkEventEach[k] = ;
-    //                timeEventEach[k] = ;
-    //                IMGEventEach[k] = ;
-    //            }
-    //        });
-    //    }
+    //    讀入資料
+    function eachMzmGetEventJson(jLink, cRound, mzmA) {
+        $.getJSON(jLink, function (eventEach) {
+            var titleEventEach = [];
+            var linkEventEach = [];
+            var timeStartEventEach = [];
+            var timeEndEventEach = [];
+            var dateStartEventEach = [];
+            var dateEndEventEach = [];
+            var IMGEventEach = [];
+            var tagEventEach = [];
+            var susEvent = [];
+            for (var k = 0; k < mzmA; k++) {
+                titleEventEach[k] = eventEach.feed.entry[k].gsx$eventname.$t;
+                linkEventEach[k] = eventEach.feed.entry[k].gsx$weblink.$t;
+                timeStartEventEach[k] = eventEach.feed.entry[k].gsx$eventstarttime.$t;
+                timeEndEventEach[k] = eventEach.feed.entry[k].gsx$eventendtime.$t;
+                dateStartEventEach[k] = eventEach.feed.entry[k].gsx$eventstartday.$t;
+                dateEndEventEach[k] = eventEach.feed.entry[k].gsx$eventdueday.$t;
+                IMGEventEach[k] = eventEach.feed.entry[k].gsx$image.$t;
+                tagEventEach[k] = eventEach.feed.entry[k].gsx$type.$t;
+                susEvent[k] = eventEach.feed.entry[k].gsx$suspend.$t;
+                if (susEvent[k] == "") {
+                    $("#mzm" + cRound + " .subListLeft .eventContent").append("<li><span class='newTag'>" + tagEventEach[k] + "</span><div class='eventImg'><img src='" + IMGEventEach[k] + "' alt='" + titleEventEach[k] + "'/><a class='eventLink' href='" + linkEventEach[k] + "'>" + titleEventEach[k] + "</a></div><span class='timeStramp'>" + timeStartEventEach[k] + "-" + timeEndEventEach[k] + "<br/>" + dateStartEventEach[k] + " - " + dateEndEventEach[k] + "</span></li>");
+                }
+                console.log(k, cRound);
+            }
+        });
+    }
+
     function eachMzmGetNewsJson(newsLink, cRound, mzmA) {
-        console.log("!!!");
         $.getJSON(newsLink, function (newsEach) {
-            console.log("!!!！！！");
             var titleNewsEach = [];
             var linkNewsEach = [];
             var timeNewsEach = [];
@@ -163,7 +177,6 @@ $(document).ready(function () {
         $(this).attr("href", $(this).attr("href") + "?" + n);
         console.log($(this).attr("href"));
     });
-
     //**Navbar 滑動顯示**//
     let navBar = document.getElementsByClassName("navBar")[0];
     let action = document.getElementsByClassName("firstSec")[0];
@@ -317,7 +330,7 @@ $(document).ready(function () {
     }); //for
 
     function getClickScrollToID(mzmN) {
-        console.log("GO!" + mzmN);
+        //        console.log("GO!" + mzmN);
         $.each($("main a.sLink" + mzmN), function (index, value) {
             console.log(index + "SELECT:" + $(value).text());
             $(value).click(function () {

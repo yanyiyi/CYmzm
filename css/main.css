@@ -16,7 +16,6 @@
     url(//fonts.gstatic.com/ea/cwtexfangsong/v3/cwTeXFangSong-zhonly.ttf) format('truetype');
 }
 
-
 html,
 body {
     height: 100%;
@@ -27,6 +26,7 @@ body {
 body {
     background: url(../img/bkBig.jpg) bottom center no-repeat;
     background-size: contain;
+    /*底下山的背景*/
 }
 
 #frontIndex {
@@ -347,33 +347,77 @@ section:hover {
 }
 
 .infoBox .subListLeft li {
-    font-family: 'MyHana', serif;
     font-size: 1em;
     list-style-type: none;
     padding: 5px 5px 0 5px;
     clear: both;
-    word-break: break-all;
+    position: relative;
+    overflow: hidden;
 }
-
 
 .timeStramp {
     color: #9c7d4d;
-
+    font-family: 'MyHana', serif;
     font-size: 0.9em;
     display: inline-block;
     vertical-align: middle;
+
+}
+
+.eventContent .timeStramp {
+    color: #9c7d4d;
+    background-color: #FFF;
+    padding: 5px 5px 5px 5px;
+    width: calc(100% - 12px);
+    border-radius: 0px 0px 3px 3px;
+    -moz-border-radius: 0px 0px 3px 3px;
+    -webkit-border-radius: 0px 0px 3px 3px;
+    border: 1px #9c7d4d solid;
+    border-width: 0 1px 1px 1px;
+    border-color: #9c7d4d;
 }
 
 .newTag {
-    font-size: 0.9em;
+    font-size: 0.8em;
     float: right;
     display: inline-block;
     background-color: #9c7d4d;
-    padding: 0.15em 0.3em;
+    padding: 0.2em 0.35em;
     color: #FFF;
     border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
     -webkit-border-radius: 3px 3px 3px 3px;
+    font-weight: 100;
+}
+
+.eventContent .newTag {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 40;
+    border-radius: 0px 3px 0px 6px;
+    -moz-border-radius: 0px 3px 0px 6px;
+    -webkit-border-radius: 0px 3px 0px 6px;
+}
+
+.eventImg {
+    position: relative;
+    width: calc(100% - 2px);
+    padding-bottom: 85%;
+    top: 0;
+    border-radius: 3px 3px 0px 3px;
+    -moz-border-radius: 3px 3px 0px 3px;
+    -webkit-border-radius: 3px 3px 0px 3px;
+    overflow: hidden;
+    border: 1px #9c7d4d solid;
+    border-width: 1px 1px 0px 1px;
+    border-color: #9c7d4d;
+}
+
+.eventImg img {
+    position: absolute;
+    width: 100%;
+    z-index: 20;
 }
 
 .infoBox .subListLeft li a {
@@ -382,11 +426,21 @@ section:hover {
     padding: 5px 0 5px 0;
     font-size: 0.8em;
     font-family: "Noto Sans TC", sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     text-align: justify;
     line-height: 1.2;
+    word-break: break-all;
 }
 
+.infoBox .subListLeft .eventContent li a {
+    background-color: rgba(158, 126, 77, 0.8);
+    color: #FFF;
+    position: absolute;
+    z-index: 40;
+    bottom: 0px;
+    padding: 5px 5px 5px 5px;
+    width: calc(100% - 10px);
+}
 
 .eachMzm {
     height: 90%;
